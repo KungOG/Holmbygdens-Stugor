@@ -45,7 +45,8 @@ export default {
                 unavailable: ""
             }
         }
-    }
+    },
+    methods : {}
 }
 </script>
 
