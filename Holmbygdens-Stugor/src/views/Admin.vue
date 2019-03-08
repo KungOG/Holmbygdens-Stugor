@@ -4,15 +4,15 @@
         <h1>Admin site</h1>
     </section>
     <section class="addCabin">
-        <input type="text" placeholder="namn" v-model="">
-        <input type="number" placeholder="pris" v-model="">
-        <input type="text" placeholder="stugområde" v-model="">
-        <input type="text" placeholder="var adress" v-model="">
-        <input type="text" placeholder="datum från" v-model="">
-        <input type="text" placeholder="datum till" v-model="">
-        <input type="text" placeholder="otillgänliga" v-model="">
-        <input type="text" placeholder="tillgängliga" v-model="">
-        <input type="text" placeholder="info" v-model="">
+        <input type="text" placeholder="namn" v-model="newCabin.name">
+        <input type="number" placeholder="pris" v-model="newCabin.price">
+        <input type="text" placeholder="stugområde" v-model="newCabin.where.city">
+        <input type="text" placeholder="var adress" v-model="newCabin.where.adress">
+        <input type="text" placeholder="datum från" v-model="newCabin.date.from">
+        <input type="text" placeholder="datum till" v-model="newCabin.date.to">
+        <input type="text" placeholder="otillgänliga" v-model="newCabin.cabins.available">
+        <input type="text" placeholder="tillgängliga" v-model="newCabin.cabins.unavailable">
+        <input type="text" placeholder="info" v-model="newCabin.info">
         <a href="#" class="btn">Lägg till Stuga</a>
     </section>
     <router-view />
@@ -46,7 +46,17 @@ export default {
             }
         }
     },
-    methods : {}
+    methods : {
+        makeCabin () {
+            this.$store.dispatch('makeCabin', this.newCabin);
+            this.$store.dispatch('getCabin');
+        }
+    },
+    computed : {
+        cabins () {
+            return this.$store.state.cabins;
+        }
+    }
 }
 </script>
 
