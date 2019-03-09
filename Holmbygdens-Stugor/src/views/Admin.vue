@@ -5,10 +5,16 @@
         <tr>
             <th>Stuga</th>
             <th>Stugområde</th>
+            <th>Stugo adress</th>
+            <th>Information</th>
+            <th>Pris</th>
         </tr>
         <tr v-for="cabin in cabins" :key="cabin._id" :cabin="cabin">
             <td>{{cabin.name}}</td>
             <td>{{cabin.where.city}}</td>
+            <td>{{cabin.where.adress}}</td>
+            <td>{{cabin.info}}</td>
+            <td>{{cabin.price}}</td>
         </tr>
     </section>
     <section class="addCabin">

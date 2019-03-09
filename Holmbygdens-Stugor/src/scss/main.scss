@@ -1,17 +1,36 @@
+/* CSS i hela appen */
 #app {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
-    color: #2c3e50;
-  }
+    color: black;
+    display: flex;
+
+    .content {
+
+      /* CSS i Admin sidan */
+      .cabin {
+        background : lightcoral;
+        padding : 1.5rem;
+      }
+      .addCabin {
+        background : darkcyan;
+        padding : 2rem .5rem;
+        display: grid;
+      }
+    }  
+  /* Navigationen */
   #nav {
-    padding: 30px;
+    padding: 1rem;
+    /* Länkar och även aktiva sidorna */
     a {
       font-weight: bold;
-      color: #2c3e50;
+      color: black;
+
       &.router-link-exact-active {
-        color: #42b983;
+        color: red;
       }
     }
+ }
   }

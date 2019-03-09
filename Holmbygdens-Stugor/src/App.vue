@@ -5,8 +5,8 @@
       <router-link to="/booking">Booking</router-link> |
       <router-link to="/profile">Profile</router-link> |
       <router-link to="/admin">Admin</router-link> 
+      <router-view/>
     </div>
-    <router-view/>
   </div>
 </template>
 
