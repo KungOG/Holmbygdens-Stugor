@@ -2,20 +2,24 @@
     <main class="content">
     <section class="cabin">
         <h1>Admin site</h1>
-        <tr>
-            <th>Stuga</th>
-            <th>Stugområde</th>
-            <th>Stugo adress</th>
-            <th>Information</th>
-            <th>Pris</th>
-        </tr>
-        <tr v-for="cabin in cabins" :key="cabin._id" :cabin="cabin">
-            <td>{{cabin.name}}</td>
-            <td>{{cabin.where.city}}</td>
-            <td>{{cabin.where.adress}}</td>
-            <td>{{cabin.info}}</td>
-            <td>{{cabin.price}}</td>
-        </tr>
+        <thead>
+            <tr>
+                <th>Stuga</th>
+                <th>Stugområde</th>
+                <th>Stugo adress</th>
+                <th>Information</th>
+                <th>Pris</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr v-for="cabin in cabins" :key="cabin._id" :cabin="cabin">
+                <td>{{cabin.name}}</td>
+                <td>{{cabin.where.city}}</td>
+                <td>{{cabin.where.adress}}</td>
+                <td>{{cabin.info}}</td>
+                <td>{{cabin.price}}</td>
+            </tr>
+        </tbody>
     </section>
     <section class="addCabin">
         <!-- Detta är våran information och våran mall som 
