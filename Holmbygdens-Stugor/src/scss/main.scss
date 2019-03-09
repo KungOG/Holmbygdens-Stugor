@@ -18,6 +18,15 @@
         background : darkcyan;
         padding : 2rem .5rem;
         display : grid;
+
+        input {
+          padding : .5rem;
+        }
+
+        & a.btn {
+          padding : 1rem;
+          background : yellowgreen;
+        }
       }
     }  
   /* Navigationen */
