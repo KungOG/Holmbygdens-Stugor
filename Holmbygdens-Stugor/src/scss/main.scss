@@ -17,20 +17,21 @@
       .addCabin {
         background : darkcyan;
         padding : 2rem .5rem;
-        display: grid;
+        display : grid;
       }
     }  
   /* Navigationen */
   #nav {
-    padding: 1rem;
+    padding : 1rem;
+    background : rgb(181, 179, 250);
     /* Länkar och även aktiva sidorna */
     a {
-      font-weight: bold;
-      color: black;
+      font-weight : bold;
+      color : black;
 
       &.router-link-exact-active {
-        color: red;
+        color : red;
       }
     }
- }
   }
+}
