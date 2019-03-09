@@ -10,12 +10,12 @@ let cabinSchema = new Schema({
     date: {
         from: String,
         to: String,
-        checkin: Number,
-        checkout: Number
+        checkin: String,
+        checkout: String
     },
     info: String,
     price: Number,
-    cabins: {
+    cabin: {
         available: Number,
         unavailable: Number
     }

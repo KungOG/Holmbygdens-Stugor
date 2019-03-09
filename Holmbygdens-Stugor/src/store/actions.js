@@ -1,11 +1,15 @@
 import axios from 'axios'
 
 export default {
+
+    /* Hämta stugorna ifrån Databasen */
     async getCabin (ctx) {
        let cabins = await axios.get('http://localhost:3000/cabins');
-        ctx.commit('setEvents', events.data);
+        ctx.commit('setCabins', cabins.data);
     },
-    async createCabin (ctx, cabin) {
+    
+    /* Samlar information som sedan skickas till våran DB som bygger en ny stuga */
+    async makeCabin (ctx, cabin) {
         try {
             await axios.post('http://localhost:3000/cabins', cabin);
             ctx.dispatch('getCabin');
