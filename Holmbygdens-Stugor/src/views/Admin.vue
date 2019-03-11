@@ -84,8 +84,8 @@ export default {
     },
     computed : {
         cabins () {
-            return this.$store.state.cabins;
-        },
+            return this.$store.getters.cabins;
+        }
     }
 }
 </script>

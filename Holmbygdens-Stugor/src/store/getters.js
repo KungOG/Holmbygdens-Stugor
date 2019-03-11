@@ -5,7 +5,7 @@ export default {
     getCabinsByCabinId (state) {
         return (id) => {
             return state.cabins.filter(
-                cabin => cabin.id == id
+                cabin => cabin._id == id
             )[0]
         }
     }
