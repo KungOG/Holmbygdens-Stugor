@@ -12,6 +12,18 @@ export default new Router({
         import('./views/Home.vue')
     },
     {
+      path: '/booking',
+      name: 'booking',
+      component: () => 
+        import('./views/Booking.vue')
+    },
+    {
+      path: '/profile',
+      name: 'profile',
+      component: () => 
+        import('./views/Profile.vue')
+    },
+    {
       path : '/admin',
       name : 'admin',
       component : () => 
@@ -25,18 +37,6 @@ export default new Router({
             import('./components/Cabins.vue'),
         }
       ]
-    },
-    {
-      path: '/booking',
-      name: 'booking',
-      component: () => 
-        import('./views/Booking.vue')
-    },
-    {
-      path: '/profile',
-      name: 'profile',
-      component: () => 
-        import('./views/Profile.vue')
     }
   ]
 })

@@ -1,23 +1,11 @@
 <template>
     <main class="content">
     <section class="cabin">
-        <h1>Admin site</h1>
-        <thead>
-            <tr>
-                <th>Stuga</th>
-                <th>Stugområde</th>
-                <th>Stugo adress</th>
-                <th>Information</th>
-                <th>Pris</th>
-            </tr>
-        </thead>
+        <h2>Stuglista</h2>
         <tbody>
             <tr v-for="(cabin, index) in cabins" :key="cabin._id" :cabin="cabin" @click="$router.push(`/${cabin._id}`)">
                 <td>{{cabin.name}}</td>
-                <td>{{cabin.where.city}}</td>
-                <td>{{cabin.where.adress}}</td>
-                <td>{{cabin.info}}</td>
-                <td>{{cabin.price}}</td>
+                <td><em>Klicka för mer info</em></td>
                 <button @click="deleteCabin(index)">X</button>
             </tr>
         </tbody>
@@ -84,7 +72,7 @@ export default {
     },
     computed : {
         cabins () {
-            return this.$store.getters.cabins;
+            return this.$store.state.cabins;
         }
     }
 }

@@ -12,10 +12,7 @@
 <script>
 export default {
   name : 'app',
-  beforeMount () {
-    /* Innan sidan laddas, ska den först hämta våra stugor */
-    this.$store.dispatch('getCabin');
-    }
+     
 }
 </script>
 
