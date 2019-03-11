@@ -17,20 +17,18 @@ export default new Router({
       component : () => 
         import('./views/Admin.vue'),
       
-        children : [
-        {
-          path : 'admin/verify',
-          name : 'verify',
-          component : () => 
-            import('./views/Verify.vue'),
-        }
-      ]
     },
     {
       path: '/booking',
       name: 'booking',
       component: () => 
         import('./views/Booking.vue')
+    },
+    {
+      path: '/verify',
+      name: 'verify',
+      component: () => 
+        import('./views/Verify.vue')
     },
     {
       path: '/profile',
