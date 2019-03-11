@@ -12,12 +12,13 @@
             </tr>
         </thead>
         <tbody>
-            <tr v-for="cabin in cabins" :key="cabin._id" :cabin="cabin">
+            <tr v-for="(cabin, index) in cabins" :key="cabin._id" :cabin="cabin" @click="$router.push(`/${cabin._id}`)">
                 <td>{{cabin.name}}</td>
                 <td>{{cabin.where.city}}</td>
                 <td>{{cabin.where.adress}}</td>
                 <td>{{cabin.info}}</td>
                 <td>{{cabin.price}}</td>
+                <button @click="deleteCabin(index)">X</button>
             </tr>
         </tbody>
     </section>
@@ -50,22 +51,22 @@ export default {
         return {
             /* Våran mall fyller sedan detta för att sedan skickas till DB:n */
             newCabin : {
-                name: '',
-                info: '',
-                price: '',
-                where: {
-                    city: '',
-                    adress: '',
+                name : '',
+                info : '',
+                price  : '',
+                where : {
+                    city : '',
+                    adress : '',
                 },
-                date: {
-                    from: '',
-                    to: '',
-                    checkin: "15:00",
-                    checkout: "10:00"
+                date : {
+                    from : '',
+                    to : '',
+                    checkin : "15:00",
+                    checkout : "10:00"
                 },
-                cabin: {
-                    available: '',
-                    unavailable: '',
+                cabin : {
+                    available : '',
+                    unavailable : '',
                 }
             }
         }
@@ -76,12 +77,15 @@ export default {
             * hämtar vi den nya infon för att kunna uppdatera våran lista */
             this.$store.dispatch('makeCabin', this.newCabin);
             this.$store.dispatch('getCabin');
+        },
+        deleteCabin (index) {
+            this.cabins.splice(index, 1);
         }
     },
     computed : {
         cabins () {
             return this.$store.state.cabins;
-        }
+        },
     }
 }
 </script>

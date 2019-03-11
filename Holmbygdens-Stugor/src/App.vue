@@ -9,6 +9,16 @@
     </div>
   </div>
 </template>
+<script>
+export default {
+  name : 'app',
+  beforeMount () {
+    /* Innan sidan laddas, ska den först hämta våra stugor */
+    this.$store.dispatch('getCabin');
+    }
+}
+</script>
+
 
 <style lang="scss">
 @import './scss/main.scss';

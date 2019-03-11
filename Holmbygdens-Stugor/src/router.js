@@ -19,10 +19,10 @@ export default new Router({
       
         children : [
         {
-          path : 'admin/verify',
-          name : 'verify',
+          path : '/:id',
+          name : 'cabins',
           component : () => 
-            import('./views/Verify.vue'),
+            import('./components/Cabins.vue'),
         }
       ]
     },
