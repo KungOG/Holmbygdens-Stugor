@@ -11,7 +11,7 @@
         </tbody>
     </section>
     <section class="addCabin">
-        <!-- Detta är våran information och våran mall som 
+        <!-- Detta är våran information och våran mall som
              vi skickar för att skapa en ny stuga till våran databas. -->
         <input type="text" placeholder="namn" v-model="newCabin.name">
         <input type="number" placeholder="pris" v-model="newCabin.price">
@@ -61,7 +61,7 @@ export default {
     },
     methods : {
         makeCabin () {
-            /* Här skickar vi den nya stugan och därefter 
+            /* Här skickar vi den nya stugan och därefter
             * hämtar vi den nya infon för att kunna uppdatera våran lista */
             this.$store.dispatch('makeCabin', this.newCabin);
             this.$store.dispatch('getCabin');

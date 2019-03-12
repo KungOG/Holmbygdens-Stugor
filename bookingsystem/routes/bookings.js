@@ -6,21 +6,21 @@ let Cabin = require('../models/cabin');
 
 // GET
 module.exports.get = async (req, res) => {
-    
+
     try {
 
-        res.status(200).send( await Ticket.find({}) );        
-    
+        res.status(200).send( await Ticket.find({}) );
+
     } catch(err){
-    
+
         res.status(500).send(err.stack);
-    
+
     }
 }
 
 // POST
 module.exports.post = async (req, res) => {
-    
+
     try {
 
         // Finns stugor? Får min beställning plats?
@@ -39,7 +39,7 @@ module.exports.post = async (req, res) => {
             await Cabin.findOneAndUpdate({ _id: req.body.cabin}, {
                 tickets: {
                     sold: newSold,
-                    available: event.tickets.available    
+                    available: event.tickets.available
                 }
             });
 

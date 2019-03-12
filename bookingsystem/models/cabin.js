@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 let Schema = mongoose.Schema;
 
-let cabinSchema = new Schema({      
+let cabinSchema = new Schema({
     name: String,
     where: {
         city: String,

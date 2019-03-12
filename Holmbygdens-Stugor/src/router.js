@@ -8,32 +8,37 @@ export default new Router({
     {
       path : '/',
       name : 'home',
-      component : () => 
+      component : () =>
         import('./views/Home.vue')
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: () => import('./views/Login.vue')
     },
     {
       path: '/booking',
       name: 'booking',
-      component: () => 
+      component: () =>
         import('./views/Booking.vue')
     },
     {
       path: '/profile',
       name: 'profile',
-      component: () => 
+      component: () =>
         import('./views/Profile.vue')
     },
     {
       path : '/admin',
       name : 'admin',
-      component : () => 
+      component : () =>
         import('./views/Admin.vue'),
-      
+
         children : [
         {
           path : '/:id',
           name : 'cabins',
-          component : () => 
+          component : () =>
             import('./components/Cabins.vue'),
         }
       ]

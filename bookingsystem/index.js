@@ -10,7 +10,7 @@ mongoose.connect(`mongodb+srv://admin:${process.env.PASSWORD}@stugor-svqg5.mongo
 })
 .catch(err => console.error(err.stack))
 
-    
+
 
 // Routes
  let cabins = require('./routes/cabins');
