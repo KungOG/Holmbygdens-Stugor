@@ -10,7 +10,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
+            <tr v-if="cabins">
                 <td>{{cabins.name}}</td>
                 <td>{{cabins.where.city}}</td>
                 <td>{{cabins.where.adress}}</td>
