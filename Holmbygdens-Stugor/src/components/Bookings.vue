@@ -1,7 +1,8 @@
 <template>
     <main>
         <section>
-            <h1>oaihdj</h1>
+            <h1>Aktiva bokningar</h1>
+         
         </section>
     </main>
 </template>

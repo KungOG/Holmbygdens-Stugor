@@ -1,15 +1,19 @@
 <template>
-    <main>
-        <p v-if="cabin">Du har just nu valt den här: {{cabin.name}} stugan.</p>
+    <main class="content">
+        <p v-if="cabin">Du har just nu valt: {{cabin.name}} stugan.</p>
         <p>Var vänlig och fyll i datum du vill boka</p>
-        <p>Incheckning</p><date-pick v-model="from"></date-pick>
-        <p>Utcheckning</p><date-pick v-model="to"></date-pick>
+        <HotelDatePicker
+        :disabledDaysOfWeek="['Saturday', 'Tuesday', 'Wednesday', 'Friday', 'Sunday']"
+        :enableCheckout="true"
+        :minNights="3"
+        ></HotelDatePicker>
+        <button @click="selectedCabin(cabin)">Boka Stuga</button>
     </main>
 </template>
 
 <script>
 import DatePick from 'vue-date-pick';
-import 'vue-date-pick/dist/vueDatePick.css';
+import HotelDatePicker from 'vue-hotel-datepicker'
 
 export default {
     name : 'pickdate',
@@ -24,13 +28,8 @@ export default {
         }
     },
     components : {
-        DatePick
-    },
-    data : () => ({
-        from : '2019-01-01',    
-        to : '2019-01-02'    
-    })
-
+         HotelDatePicker
+    }
 }
 </script>
 
