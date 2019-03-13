@@ -18,6 +18,7 @@ export default {
     },
     computed : {
       cabins () {
+          /* Hämta alla stugor */
             return this.$store.state.cabins;
         }
     }

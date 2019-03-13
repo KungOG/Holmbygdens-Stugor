@@ -1,8 +1,13 @@
 <template>
     <main class="content">
     <section class="cabin">
-        <h2 @click="$router.push('/cabins')">Stug lista</h2>
-        <h2 @click="$router.push('/addcabin')">Lägg till Stuga</h2>
+        <thead>
+            <tr>
+                <td @click="$router.push('/cabins')"> Stug lista |</td>
+                <td @click="$router.push('/addcabin')"> Lägg till Stuga |</td> 
+                <td @click="$router.push('/bookings')"> Bokningar</td>
+            </tr>
+        </thead>
     </section>
     <router-view />
     </main>

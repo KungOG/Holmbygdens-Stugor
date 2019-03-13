@@ -7,13 +7,16 @@
                 <td>{{cabin.where.adress}}</td>
                 <td>{{cabin.info}}</td>
                 <td>{{cabin.price}}</td>
-                <button @click="deleteCabin(cabin)">X</button>
-            </tr>
+            </tr>          
+            <button @click="deleteCabin(cabin)">Ta bort</button>
+            <button @click="redoCabin(cabin)">Redigera</button>
         </tbody>
     </main>
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
     name : 'cabin',
     computed : {
@@ -21,12 +24,16 @@ export default {
             return this.$store.getters.getCabinsByCabinId(
                 this.$route.params.id
             );
+        },
+        cabins () {
+            return this.$store.state.cabins;
         }
     },
     methods : {
-        deleteCabin (cabin) {
-            console.log(cabin);
-            this.cabins.splice(cabin, 1);
+        deleteCabin (cabin, _id) {
+            console.log(_id)
+           axios.delete('http://localhost:3000/cabins/' + _id)
+           .then(response => this.cabin.splice(index, 1));
         }
     }
 }

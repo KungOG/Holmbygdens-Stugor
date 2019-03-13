@@ -26,6 +26,7 @@ app.route('/cabins')
 .get(cabins.get)
 .post(cabins.post)
 
+
 app.route('/bookings')
 .post(bookings.post)
 
