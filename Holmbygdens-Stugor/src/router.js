@@ -28,13 +28,27 @@ export default new Router({
       name : 'admin',
       component : () => 
         import('./views/Admin.vue'),
-      
         children : [
+          {
+            path : '/addcabin',
+            name : 'add-cabin',
+            component : () => 
+              import('./components/Addcabin.vue'),
+          },
         {
-          path : '/:id',
+          path : '/cabins',
           name : 'cabins',
           component : () => 
             import('./components/Cabins.vue'),
+            
+            children : [
+              {
+                path : '/cabins/:id',
+                name : 'cabin',
+                component : () =>
+                  import('./components/Cabin.vue')
+              }
+            ]
         }
       ]
     }

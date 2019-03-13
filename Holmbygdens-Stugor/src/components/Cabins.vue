@@ -1,47 +1,29 @@
 <template>
     <main class="cabin">
-        <thead>
-            <tr>
-                <th>Stuga</th>
-                <th>Stugområde</th>
-                <th>Stugo adress</th>
-                <th>Information</th>
-                <th>Pris</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr v-if="cabins">
-                <td>{{cabins.name}}</td>
-                <td>{{cabins.where.city}}</td>
-                <td>{{cabins.where.adress}}</td>
-                <td>{{cabins.info}}</td>
-                <td>{{cabins.price}}</td>
-                <button @click="deleteCabin(index)">X</button>
-            </tr>
-        </tbody>
+        <h2>Stug lista</h2>
+        <ul>
+            <li v-for="cabin in cabins" :key="cabin._id" :cabin="cabin" @click="$router.push(`/cabins/${cabin._id}`)">
+            {{cabin.name}} <em>Klicka för mer info</em></li>
+        </ul>
+        <router-view />
     </main>
 </template>
 
 <script>
 export default {
     name : 'cabins',
-    methods : {
-        deleteCabin (index) {
-            this.cabins.splice(index, 1);
-        }
+        beforeMount () {
+        /* Innan sidan laddas, ska den först hämta våra stugor */
+        this.$store.dispatch('getCabin');
     },
     computed : {
-        cabins () {
-            return this.$store.getters.getCabinsByCabinId(
-                this.$route.params.id
-            );
+      cabins () {
+            return this.$store.state.cabins;
         }
     }
 }
 </script>
 
-<style lang="scss">
-.cabin {
-    background : lightgrey;
-}
+<style lang="scss"> 
+
 </style>
