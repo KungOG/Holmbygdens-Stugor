@@ -32,12 +32,6 @@ export default new Router({
         ]
     },
     {
-      path: '/verify',
-      name: 'verify',
-      component: () => 
-        import('./views/Verify.vue')
-    },
-    {
       path: '/profile',
       name: 'profile',
       component : () => 
@@ -60,6 +54,12 @@ export default new Router({
             name : 'bookings',
             component : () => 
               import('./components/Bookings.vue'),
+          },
+          {
+            path: '/verify',
+            name: 'verify',
+            component: () => 
+              import('./components/Verify.vue')
           },
           {
             path : '/cabins',

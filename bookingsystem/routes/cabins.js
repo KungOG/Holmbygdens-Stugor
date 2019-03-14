@@ -18,9 +18,10 @@ module.exports.get = async (req, res) => {
 
 }
 
-// POST
+/* Här redigerar vi en gammal stuga ifall infon blivit fel eller liknande */
 module.exports.patch = async (req, res) => {
-       try { 
+    try { 
+        console.log('Du lyckades med att redigera en stuga!')
         res.status(200).send(await Cabin.findOneAndUpdate({_id : req.body.cabin._id},
             {
                 name : req.body.cabin.name,
@@ -39,14 +40,16 @@ module.exports.patch = async (req, res) => {
                     unavailable : req.body.cabin.cabin.unavailable
                 }
             }))
-        } catch {
-            res.status(404).send(err.stack);
-        }
+    } catch {
+        res.status(404).send(err.stack);
+    }
 }
+
+/* Här bygger vi en ny stuga ifall vi har fått en ny stuga */
 module.exports.post = async (req, res) => {
     try {
-            console.log('inne i else')
-            res.status(200).send( await Cabin.create(req.body));
+        console.log('Du lyckades med att lägga till en stuga!')
+        res.status(200).send( await Cabin.create(req.body));
         
 
     } catch(err) {
@@ -54,10 +57,11 @@ module.exports.post = async (req, res) => {
     }
 }
 
-// Delete a cabin from Admin site
+/* Här tar vi  bort en stuga som redan finns */
 module.exports.delete = async (req, res) => {
     
     try {
+        console.log('Du lyckades med att ta bort en stuga!')
         res.status(200).send( await Cabin.findOneAndDelete({_id: req.params.cabinId}));
     } catch(err) {
         res.status(404).send(err.stack);

@@ -4,8 +4,6 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/booking">Booking</router-link> |
       <router-link to="/profile">Profile</router-link> |
-      <router-link to="/Verify">Verify</router-link> |
-
       <router-link to="/admin">Admin</router-link> 
       <router-view/>
     </div>
@@ -14,7 +12,6 @@
 <script>
 export default {
   name : 'app',
-     
 }
 </script>
 
