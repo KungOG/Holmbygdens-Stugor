@@ -21,26 +21,27 @@ module.exports.get = async (req, res) => {
 // POST
 module.exports.post = async (req, res) => {
     try {
-        let newcabin = await Cabin.findById(req.body.cabin._id)
+        
 
-        if (newcabin){
+        if (await Cabin.findById(req.body.cabin._id)){
             console.log('inne i if')
             
             await Cabin.findOneAndUpdate({_id : req.body.cabin._id},
                 {
                     name : req.body.cabin.name,
                     price: req.body.cabin.price,
-                    where : { 
+                    info: req.body.cabin.info,
+                    where: {
                         adress: req.body.cabin.where.adress,
-                        city: req.body.cabin.where.city
+                        city: req.body.cabin.where.city,
                     },
-                    date : { 
+                    date : {
                         from : req.body.cabin.date.from,
-                        to : req.body.cabin.date.to
+                        to : req.body.cabin.date.to,
                     },
                     cabin : {
-                        available : req.body.cabin.available,
-                        unavailable : req.body.cabin.unavailable
+                        available : req.body.cabin.cabin.available,
+                        unavailable : req.body.cabin.cabin.unavailable
                     }
                 })
         } else {
