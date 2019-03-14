@@ -6,5 +6,10 @@ export default {
     /* När vi tillverkar en ny stuga så sparas det även här */
     setCabin (state, cabin) {
         state.cabin = cabin;
-    }
+    },
+
+    setVerifyData(state, data){
+        state.verifyData = data;
+      }
+
 }

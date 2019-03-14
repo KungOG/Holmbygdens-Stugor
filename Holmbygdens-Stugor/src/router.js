@@ -32,6 +32,12 @@ export default new Router({
         ]
     },
     {
+      path: '/verify',
+      name: 'verify',
+      component: () => 
+        import('./views/Verify.vue')
+    },
+    {
       path: '/profile',
       name: 'profile',
       component : () => 

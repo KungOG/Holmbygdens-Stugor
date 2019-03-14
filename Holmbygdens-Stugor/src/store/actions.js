@@ -23,5 +23,9 @@ export default {
         console.log(cabinData, 'skicka')
         await axios.patch(`http://localhost:3000/cabins/`, cabinData);
         ctx.dispatch('getCabin');
-    }
+    },
+    async verifyBooking(ctx, code){
+        let verification = await axios.get(`http://localhost:3000/verify/${code}`);
+        ctx.commit('setVerifyData', verification.data);
+      }
 }

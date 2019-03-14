@@ -18,7 +18,8 @@ let cabinSchema = new Schema({
     cabin: {
         available: Number,
         unavailable: Number
-    }
+    },
+    code: String
 })
 
 let Cabin = mongoose.model('cabin', cabinSchema);
