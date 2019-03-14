@@ -11,6 +11,7 @@
     "axios": "^0.18.0",
     "vue": "^2.6.6",
     "vue-router": "^3.0.1",
+    "vue2-datepicker": "^2.10.1",
     "vuex": "^3.0.1"
   },
   "devDependencies": {

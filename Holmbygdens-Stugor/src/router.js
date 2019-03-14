@@ -23,6 +23,12 @@ export default new Router({
         import('./views/Booking.vue')
     },
     {
+      path: '/cabins',
+      name: 'cabins',
+      component: () =>
+        import('./views/cabins.vue')
+    },
+    {
       path: '/profile',
       name: 'profile',
       component: () =>

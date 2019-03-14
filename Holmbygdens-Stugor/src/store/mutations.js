@@ -1,4 +1,8 @@
 export default {
+
+  chooseCabins(state, item){
+  state.activeCabin = item;
+},
     /* Våra stugor som finns på våran DB samlas här */
     setCabins (state, cabins) {
         state.cabins = cabins;

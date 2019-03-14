@@ -1,4 +1,5 @@
 export default {
     cabins : [],
-    cabin : {}    
+    cabin : {},
+    activeCabin: {},   
 }
