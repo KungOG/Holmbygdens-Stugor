@@ -8,8 +8,8 @@
             <input type="text" placeholder="var adress" v-model="cabin.where.adress">
             <input type="text" placeholder="datum från" v-model="cabin.date.from">
             <input type="text" placeholder="datum till" v-model="cabin.date.to">
-            <input type="text" placeholder="otillgänliga" v-model="cabin.available">
-            <input type="text" placeholder="tillgängliga" v-model="cabin.unavailable">
+            <input type="text" placeholder="otillgänliga" v-model="cabin.cabin.available">
+            <input type="text" placeholder="tillgängliga" v-model="cabin.cabin.unavailable">
             <input type="text" placeholder="info" v-model="cabin.info">
             <a href="#" class="btn" @click="redoCabin(cabin, cabin._id)">Redigera Stuga</a>
             <a href="#" class="btn" @click="id = cabin._id; deleteCabin()">Ta bort Stuga</a>         
