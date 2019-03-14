@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+
+/* Moduler */
 import state from './state'
 import mutations from './mutations'
 import actions from './actions'

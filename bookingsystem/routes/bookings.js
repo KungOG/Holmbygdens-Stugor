@@ -74,6 +74,17 @@ module.exports.post = async (req, res) => {
     }
 }
 
+
+/* När vi behöver avboka en bokning */
+module.exports.delete = async (req, res) => {
+    
+    try {
+        res.status(200).send( await Cabin.findOneAndDelete({_id: req.params.bookingId}));
+    } catch(err) {
+        res.status(404).send(err.stack);
+    }
+}
+
 function uid(len){
 
     let chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';

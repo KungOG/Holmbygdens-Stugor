@@ -12,17 +12,24 @@ export default new Router({
         import('./views/Home.vue')
     },
     {
-      path : '/admin',
-      name : 'admin',
+      path : '/book/:id',
+      name : 'book',
       component : () => 
-        import('./views/Admin.vue'),
-      
+        import('./views/Book.vue')
     },
     {
       path: '/booking',
       name: 'booking',
-      component: () => 
-        import('./views/Booking.vue')
+      component : () => 
+        import('./views/Booking.vue'),
+        children : [
+          {
+          path : '/booking/:id',
+          name : 'pickdate',
+          component : () =>
+            import('./components/Pickdate.vue')
+          }
+        ]
     },
     {
       path: '/verify',
@@ -33,8 +40,43 @@ export default new Router({
     {
       path: '/profile',
       name: 'profile',
-      component: () => 
+      component : () => 
         import('./views/Profile.vue')
+    },
+    {
+      path : '/admin',
+      name : 'admin',
+      component : () => 
+        import('./views/Admin.vue'),
+        children : [
+          {
+            path : '/addcabin',
+            name : 'add-cabin',
+            component : () => 
+              import('./components/Addcabin.vue'),
+          },
+          {
+            path : '/bookings',
+            name : 'bookings',
+            component : () => 
+              import('./components/Bookings.vue'),
+          },
+          {
+            path : '/cabins',
+            name : 'cabins',
+            component : () => 
+              import('./components/Cabins.vue'),
+              
+              children : [
+              {
+                path : '/cabins/:id',
+                name : 'cabin',
+                component : () =>
+                  import('./components/Cabin.vue')
+              }
+            ]
+        }
+      ]
     }
   ]
 })
