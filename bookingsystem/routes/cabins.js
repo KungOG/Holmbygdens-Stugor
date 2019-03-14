@@ -43,8 +43,7 @@ module.exports.post = async (req, res) => {
                         unavailable : req.body.cabin.unavailable
                     }
                 })
-        }
-        else {
+        } else {
             res.status(200).send( await Cabin.create(req.body));
         }
 
