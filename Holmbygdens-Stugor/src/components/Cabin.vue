@@ -1,3 +1,4 @@
+<!-- Här ser du mer info ang den stugan du klickar på inne i Cabins.vue -->
 <template>
     <main class="cabin">
         <tbody>

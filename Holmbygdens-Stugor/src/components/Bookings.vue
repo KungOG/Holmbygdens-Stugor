@@ -1,3 +1,4 @@
+<!-- Detta är admin bokningssidan där du ser de aktiva bokningarna -->
 <template>
     <main>
         <section>

@@ -1,3 +1,4 @@
+<!-- Sidan är för att se de aktiva stugorna som finns -->
 <template>
     <main class="cabin">
         <h2>Stug lista</h2>

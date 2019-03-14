@@ -1,3 +1,4 @@
+<!-- Nybyggd stuga eller nyinköpt stuga, så finns denna för att lägga till den nya stugan -->
 <template>
 <main>
     <section class="addCabin">

@@ -7,5 +7,4 @@ export default {
     setCabin (state, cabin) {
         state.cabin = cabin;
     }
-
 }
