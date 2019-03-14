@@ -25,6 +25,7 @@ app.use(cors()); // Dev
 app.route('/cabins')
 .get(cabins.get)
 .post(cabins.post)
+.patch(cabins.patch)
 
 app.route('/cabins/:cabinId')
 .delete(cabins.delete)

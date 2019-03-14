@@ -41,7 +41,6 @@ export default {
            this.$store.dispatch('deleteCabin', this.id);
         },
         redoCabin (cabin, id) {
-            console.log(cabin, id)
             this.$store.dispatch('redoCabin', {cabin : cabin, id : id})
         }
     }

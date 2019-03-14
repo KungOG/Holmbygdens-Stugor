@@ -21,7 +21,7 @@ export default {
     /* Skickar med information om */
     async redoCabin (ctx, cabinData) {
         console.log(cabinData, 'skicka')
-        await axios.post(`http://localhost:3000/cabins/`, cabinData);
+        await axios.patch(`http://localhost:3000/cabins/`, cabinData);
         ctx.dispatch('getCabin');
     }
 }
