@@ -1,25 +1,31 @@
 <!-- Här ser du mer info ang den stugan du klickar på inne i Cabins.vue -->
 <template>
     <main class="cabin">
-        <tbody>
-            <tr v-if="cabin">
-                <td>{{cabin.name}}</td>
-                <td>{{cabin.where.city}}</td>
-                <td>{{cabin.where.adress}}</td>
-                <td>{{cabin.info}}</td>
-                <td>{{cabin.price}}</td>
-            </tr>          
-            <button @click="deleteCabin(cabin)">Ta bort</button>
-            <button @click="redoCabin(cabin)">Redigera</button>
-        </tbody>
+        <section class="addCabin" v-if="cabin">
+            <input type="text" placeholder="name" v-model="cabin.name">
+            <input type="text" placeholder="pris" v-model="cabin.price">
+            <input type="text" placeholder="stugområde" v-model="cabin.where.city">
+            <input type="text" placeholder="var adress" v-model="cabin.where.adress">
+            <input type="text" placeholder="datum från" v-model="cabin.date.from">
+            <input type="text" placeholder="datum till" v-model="cabin.date.to">
+            <input type="text" placeholder="otillgänliga" v-model="cabin.available">
+            <input type="text" placeholder="tillgängliga" v-model="cabin.unavailable">
+            <input type="text" placeholder="info" v-model="cabin.info">
+            <a href="#" class="btn" @click="redoCabin(cabin, cabin._id)">Redigera Stuga</a>
+            <a href="#" class="btn" @click="id = cabin._id; deleteCabin()">Ta bort Stuga</a>         
+        </section>
     </main>
 </template>
 
 <script>
-import axios from 'axios'
 
 export default {
     name : 'cabin',
+    data () {
+        return {
+            id : ''
+        }
+    },
     computed : {
         cabin () {
             return this.$store.getters.getCabinsByCabinId(
@@ -31,10 +37,12 @@ export default {
         }
     },
     methods : {
-        deleteCabin (cabin, _id) {
-            console.log(_id)
-           axios.delete('http://localhost:3000/cabins/' + _id)
-           .then(response => this.cabin.splice(index, 1));
+        deleteCabin () {
+           this.$store.dispatch('deleteCabin', this.id);
+        },
+        redoCabin (cabin, id) {
+            console.log(cabin, id)
+            this.$store.dispatch('redoCabin', {cabin : cabin, id : id})
         }
     }
 }

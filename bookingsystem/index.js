@@ -26,9 +26,14 @@ app.route('/cabins')
 .get(cabins.get)
 .post(cabins.post)
 
+app.route('/cabins/:cabinId')
+.delete(cabins.delete)
 
 app.route('/bookings')
 .post(bookings.post)
+
+app.route('/bookings/:bookingId')
+.delete(bookings.delete)
 
 app.route('/verify/:code')
 .get(verify.get)
