@@ -1,19 +1,20 @@
 <template>
-        <main class='content'>
-        <h1>Verifiera bokningen</h1>
-        <section class="verification" v-if="verificaton">
-            <h1 v-if="verificaton.verified">Giltlig!</h1>
-            <h1 v-if="!verificaton.verified">Ej giltlig bokning</h1>
-            {{ verificaton.msg}}
-        </section>
-        <section class="form">
-            <input type="text" name="code" 
-            :value="code.toUpperCase()" 
-            @input="code = $event.target.value.toUpperCase()" 
-            :maxlength="codeLength"/>
+    <main class="addCabin">
+    <h1>Verifiera bokningen</h1>
+    <section class="verification" v-if="verificaton">
+        <h1 v-if="verificaton.verified">Giltlig!</h1>
+        <h1 v-if="!verificaton.verified">Ej giltlig bokning</h1>
+        {{ verificaton.msg}}
+    </section>
+    <section class="form">
+        <input type="text" name="code" 
+        :value="code.toUpperCase()" 
+        @input="code = $event.target.value.toUpperCase()" 
+        :maxlength="codeLength"/>
 
-            <a href="#" class="verify" @click="verifyBooking">Verifera Koden</a>
-        </section>
+        <br><br>
+        <a href="#" class="btn" @click="verifyBooking">Verifera Koden</a>
+    </section>
     </main>
 </template>
 

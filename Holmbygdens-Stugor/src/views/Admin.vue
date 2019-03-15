@@ -3,7 +3,7 @@
     <section class="cabin">
         <thead>
             <tr>
-                <td @click="$router.push('/cabins')"> Stug lista |</td>
+                <td @click="$router.push('/cabins')"> Stuglista |</td>
                 <td @click="$router.push('/addcabin')"> Lägg till Stuga |</td> 
                 <td @click="$router.push('/bookings')"> Bokningar |</td>
                 <td @click="$router.push('/verify')"> Verifiering</td>
