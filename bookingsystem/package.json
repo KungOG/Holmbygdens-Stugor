@@ -10,8 +10,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^3.0.4",
     "cors": "^2.8.5",
     "express": "^4.16.4",
-    "mongoose": "^5.4.12"
+    "jsonwebtoken": "^8.5.0",
+    "mongoose": "^5.4.12",
+    "uuid": "^3.3.2"
   }
 }

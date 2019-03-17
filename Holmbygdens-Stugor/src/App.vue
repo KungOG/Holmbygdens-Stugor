@@ -4,14 +4,22 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/booking">Booking</router-link> |
       <router-link to="/profile">Profile</router-link> |
-      <router-link to="/admin">Admin</router-link> 
+      <router-link to="/admin">Admin</router-link>
       <router-view/>
     </div>
   </div>
 </template>
 <script>
 export default {
-  name : 'app',
+  name: 'App',
+  beforeMount(){
+
+  },
+  computed: {
+    user(){
+      return this.$store.state.activeUser;
+    }
+  }
 }
 </script>
 

@@ -1,4 +1,11 @@
 export default {
+
+  setActiveUser(state, user){
+  state.activeUser = user;
+},
+toggleRejected(state){
+  state.rejected = !state.rejected;
+},
     /* Våra stugor som finns på våran DB samlas här */
     setCabins (state, cabins) {
         state.cabins = cabins;

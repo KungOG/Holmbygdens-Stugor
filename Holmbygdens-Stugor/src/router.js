@@ -3,24 +3,29 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
-export default new Router({
+let router = new Router({
   routes: [
     {
       path : '/',
       name : 'home',
-      component : () => 
+      component : () =>
         import('./views/Home.vue')
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: () => import('./views/Login.vue')
     },
     {
       path : '/book/:id',
       name : 'book',
-      component : () => 
+      component : () =>
         import('./views/Book.vue')
     },
     {
       path: '/booking',
       name: 'booking',
-      component : () => 
+      component : () =>
         import('./views/Booking.vue'),
         children : [
           {
@@ -34,39 +39,39 @@ export default new Router({
     {
       path: '/profile',
       name: 'profile',
-      component : () => 
+      component : () =>
         import('./views/Profile.vue')
     },
     {
       path : '/admin',
       name : 'admin',
-      component : () => 
+      component : () =>
         import('./views/Admin.vue'),
         children : [
           {
             path : '/addcabin',
             name : 'add-cabin',
-            component : () => 
+            component : () =>
               import('./components/Addcabin.vue'),
           },
           {
             path : '/bookings',
             name : 'bookings',
-            component : () => 
+            component : () =>
               import('./components/Bookings.vue'),
           },
           {
             path: '/verify',
             name: 'verify',
-            component: () => 
+            component: () =>
               import('./components/Verify.vue')
           },
           {
             path : '/cabins',
             name : 'cabins',
-            component : () => 
+            component : () =>
               import('./components/Cabins.vue'),
-              
+
               children : [
               {
                 path : '/cabins/:id',
@@ -79,4 +84,15 @@ export default new Router({
       ]
     }
   ]
-})
+});
+
+// If Auth is required && false, go to /login
+router.beforeEach((to, from, next) => {
+if (to.matched.some(record => record.meta.requiresAuth) && !auth.isAuthenticated()) {
+  next({ path: '/login' });
+} else {
+  next();
+}
+});
+
+export default router;
