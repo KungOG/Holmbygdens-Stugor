@@ -1,22 +1,56 @@
+/* Imports */
+@import './buger';
+
 /* CSS i hela appen */
+
+* {
+  box-sizing : border-box;
+}
+body {
+  margin : 0;
+  height : 100vh;
+  background : rgb(31, 53, 17);
+}
 #app {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: black;
-    display: flex;
+    overflow: hidden; 
+    
+    img {
+        max-width: 100%;
+      }
 
     .content {
+      display : grid;
 
       /* CSS i Admin sidan */
       .cabin {
         background : lightcoral;
         padding : 1.5rem;
+
+        ul {
+
+          li {
+            display : flex;
+            justify-content : space-between;
+            font-weight : bold;
+            font-size : 1.5rem;
+            em {
+              font-weight: normal !important;
+              font-size: 1rem;
+            }
+          }
+        }
+      }
+      #book {
+        background : darkgrey;
       }
       .addCabin {
         background : darkcyan;
-        padding : 2rem .5rem;
+        padding : 1rem .5rem;
         display : grid;
 
         input {
@@ -26,18 +60,25 @@
         & a.btn {
           padding : 1rem;
           background : yellowgreen;
+          text-decoration : none;
         }
       }
     }  
   /* Navigationen */
   #nav {
-    padding : 1rem;
-    background : rgb(181, 179, 250);
+    display : flex;
+    padding : 2rem;
+    color : white;
+    font-size : 1.5rem;
+    position: absolute;
+    flex-direction : column;
+    
     /* Länkar och även aktiva sidorna */
     a {
       font-weight : bold;
-      color : black;
-
+      color : white;
+      text-decoration: none;
+      
       &.router-link-exact-active {
         color : red;
       }

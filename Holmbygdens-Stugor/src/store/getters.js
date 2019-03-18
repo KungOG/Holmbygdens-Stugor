@@ -8,7 +8,6 @@ export default {
     }
   }
   let products = await axios.get(`http://localhost:3000/cabins`, opt );
-  console.log(products);
 },
     cabins (state) {
         return state.cabins;
