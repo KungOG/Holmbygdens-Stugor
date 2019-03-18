@@ -20,7 +20,7 @@ mongoose.connect(`mongodb+srv://admin:${process.env.PASSWORD}@stugor-svqg5.mongo
  let bookings = require('./routes/bookings');
  let verify = require('./routes/verify');
 
- const dbUrl =  "stugor-svqg5.mongodb.net/auth"
+const dbUrl =  "stugor-svqg5.mongodb.net/auth"
 const dbUser = 'Alexandra';
 const dbPass = '123';
 

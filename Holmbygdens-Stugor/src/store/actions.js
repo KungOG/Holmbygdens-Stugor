@@ -1,4 +1,3 @@
-import Axios from "axios";
 import axios from "axios";
 
 export default {
@@ -8,7 +7,7 @@ export default {
     try {
 
       // post username + password to /auth, receive auth token
-      let token = await Axios.post(`${ctx.state.apiUrl}/auth`, loginData)
+      let token = await axios.post(`${ctx.state.apiUrl}/auth`, loginData)
       console.log(token);
       // Set token in session storage
       sessionStorage.setItem('vueauthdemo', token.data.authToken);
