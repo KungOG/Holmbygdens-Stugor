@@ -18,7 +18,7 @@ module.exports.post = async (req, res) => {
     // if match, return signed JWT
     if (match) {
         //match
-        const token = jwt.sign({uid: user.uid}, process.env.SECRET);
+        const token = jwt.sign({uid: user.uid}, process.env.PASSWORD);
         res.status(200).send({username: user.username, authToken: token})
     } else {
 
@@ -29,8 +29,8 @@ module.exports.post = async (req, res) => {
 
 module.exports.isAdmin = async (authtoken) => {
 
-    // Decode JWT with process.env.SECRET
-    let token = await jwt.verify(authtoken.substring(7), process.env.SECRET);
+    // Decode JWT with process.env.PASSWORD
+    let token = await jwt.verify(authtoken.substring(7), process.env.PASSWORD);
     // Get user from db with decoded token > uid
     let user = await User.findOne({uid: token.uid})
 
@@ -46,8 +46,8 @@ module.exports.isAdmin = async (authtoken) => {
 module.exports.verifyToken = async (token) => {
 
     try {
-        // Verify JWT with process.env.SECRET, return token
-        await jwt.verify(token.substring(7), process.env.SECRET)
+        // Verify JWT with process.env.PASSWORD, return token
+        await jwt.verify(token.substring(7), process.env.PASSWORD)
         return true;
     } catch(err){
         // if error = not valid token, return 'not valid token.'

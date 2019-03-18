@@ -17,8 +17,8 @@ export default {
     name: 'login',
     data(){
         return {
-        username: 'Alexandra',
-        password: '123',
+        username: '',
+        password: '',
         validUsername: true,
         validPassword: true
         }

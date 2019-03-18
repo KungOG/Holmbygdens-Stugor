@@ -1,4 +1,5 @@
 import Axios from "axios";
+import axios from "axios";
 
 export default {
 
@@ -13,7 +14,6 @@ export default {
       sessionStorage.setItem('vueauthdemo', token.data.authToken);
       // update activeUser for UI ( ex. "Greger is logged in." )
       ctx.commit('setActiveUser', token.data.username);
-      ctx.dispatch('getProducts');
     } catch(err) {
 
         ctx.commit('toggleRejected');

@@ -24,34 +24,37 @@ mongoose.connect(`mongodb+srv://admin:${process.env.PASSWORD}@stugor-svqg5.mongo
 const dbUser = 'Alexandra';
 const dbPass = '123';
 
-let app = express();
+let App = express();
 
-app.use(express.json());
-app.use(cors()); // Dev
+App.use(express.json());
+App.use(cors()); // Dev
 
-app.route('/cabins')
+App.route('/cabins')
 .get(cabins.get)
 .post(cabins.post)
 .patch(cabins.patch)
 
-app.route('/cabins/:cabinId')
+App.route('/cabins/:cabinId')
 .delete(cabins.delete)
 
-app.route('/bookings')
+App.route('/bookings')
 .post(bookings.post)
 
-app.route('/bookings/:bookingId')
+App.route('/bookings/:bookingId')
 .delete(bookings.delete)
 
-app.route('/verify/:code')
+App.route('/verify/:code')
 .get(verify.get)
 
+// ROUTES
+App.route('/auth')
+.post(auth.post)
 
+App.route('/users')
+.post(users.post)
 
-const PORT = 3000;
-app.listen(PORT, () => {
-    console.info(`API up n running on port ${PORT}.`);
-})
+App.route('/cabins')
+.get(cabins.get)
 
 // Auth Middleware
 App.use((req, res, next) => {
@@ -66,12 +69,9 @@ App.use((req, res, next) => {
 
 })
 
-// ROUTES
-App.route('/auth')
-.post(auth.post)
 
-App.route('/users')
-.post(users.post)
 
-App.route('/products')
-.get(products.get)
+const PORT = 3000;
+App.listen(PORT, () => {
+    console.info(`API up n running on port ${PORT}.`);
+})
