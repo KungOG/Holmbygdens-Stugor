@@ -2,9 +2,11 @@
 <template>
     <main id="book">
     <section class="content" v-if="cabin">
-      <h1>{{ cabin.name }}</h1>
-      <article class="price">{{ cabin.price * amount }} sek</article><br>
-      <a href="#" class="btn" >Booka din Stuga</a>
+        <h1>{{ cabin.name }}</h1>
+        <article class="price">{{ cabin.price * amount }} sek</article><br>
+        <p>Var vänlig och fyll i datum du vill boka</p>
+        <HotelDatePicker :minNights="3"></HotelDatePicker>
+      <a href="#" class="btn" @click="booked">Booka din Stuga</a>
     </section>
     <section class="content" v-if="!cabin">
       <p>Ingen bokning vald.</p>
@@ -14,12 +16,30 @@
 </template>
 
 <script>
+import HotelDatePicker from 'vue-hotel-datepicker'
 export default {
     name : 'book',
-    cabins () {
-        return this.$store.getters.getCabinsByCabinId(
-            this.$route.params.id
-        );
+    components : {
+        HotelDatePicker
+    },
+    data () {
+        return {
+            amount : 1,
+        }
+    },
+    computed: {
+        cabin () {
+            return this.$store.state.cabin;
+        }
+    },
+    methods : {
+        booked () {
+            this.$store.dispatch('booked', {
+                cabin : this.cabin._id,
+                armount : this.amount
+            })
+            this.$router.push('/booked')
+        }
     }
 }
 </script>

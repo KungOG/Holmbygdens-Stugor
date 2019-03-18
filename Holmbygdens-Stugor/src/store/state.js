@@ -1,6 +1,6 @@
 export default {
     cabins : [],
     cabin : {},
-    verifyData: null
-    
+    verifyData: null,
+    bookedCabin : {}    
 }
