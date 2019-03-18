@@ -1,4 +1,4 @@
-<!-- Detta är i början av bokningsprocessen där du i steg fixar din bokning -->
+<!-- Detta är i början av bokningsprocessen där du i steg fixar din bokning. Steg 1 av 4 -->
 <template>
     <main class="content">
         <section class="cabin">

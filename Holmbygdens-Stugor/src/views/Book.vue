@@ -1,11 +1,15 @@
-<!-- Detta är bokningsprocessen där du kommer att bekräfta din bokning -->
+<!-- Detta är bokningsprocessen där du kommer att bekräfta din bokning. Steg 3 av 4 -->
 <template>
     <main id="book">
     <section class="content" v-if="cabin">
         <h1>{{ cabin.name }}</h1>
         <article class="price">{{ cabin.price * amount }} sek</article><br>
         <p>Var vänlig och fyll i datum du vill boka</p>
-        <HotelDatePicker :minNights="3"></HotelDatePicker>
+        <em><strong>OBS! Ni måste minst boka 3 nätter.</strong></em>
+        <HotelDatePicker
+        :minNights="3" 
+        placeholder="RentDays"
+        v-on:dateChanged="getDate" />
       <a href="#" class="btn" @click="booked">Booka din Stuga</a>
     </section>
     <section class="content" v-if="!cabin">
@@ -36,9 +40,12 @@ export default {
         booked () {
             this.$store.dispatch('booked', {
                 cabin : this.cabin._id,
-                armount : this.amount
+                amount : this.amount
             })
             this.$router.push('/booked')
+        },
+        getDate () {
+            console.log();
         }
     }
 }

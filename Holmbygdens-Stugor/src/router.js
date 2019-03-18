@@ -37,6 +37,12 @@ let router = new Router({
         ]
     },
     {
+      path: '/booked',
+      name: 'booked',
+      component : () =>
+        import('./views/Booked.vue')
+    },
+    {
       path: '/profile',
       name: 'profile',
       component : () =>

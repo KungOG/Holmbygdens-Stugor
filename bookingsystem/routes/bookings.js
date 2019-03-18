@@ -1,76 +1,33 @@
-// TICKETS
+// bookings
 
 // model
 let Booking = require('../models/booking');
 let Cabin = require('../models/cabin');
 
-// GET
-module.exports.get = async (req, res) => {
-    
-    try {
-
-        res.status(200).send( await Ticket.find({}) );        
-    
-    } catch(err){
-    
-        res.status(500).send(err.stack);
-    
-    }
-}
-
 // POST
 module.exports.post = async (req, res) => {
-    
+    console.log(req.body);
     try {
-
-        // Finns stugor? Får min beställning plats?
-        // Uppdatera cabin med sålda biljetter
-
-        // get cabin info
         let cabin = await Cabin.findById(req.body.cabin);
+            let eBooking = [];
 
-        if(cabin.bookings.available >= (cabin.bookings.sold + req.body.amount)){
-            // Finns biljetter kvar!
-            console.info('Cabins are available!');
-
-            // Uppdatera cabin > sold tickets
-            let newSold = cabin.bookings.sold + req.body.amount;
-
-            await Cabin.findOneAndUpdate({ _id: req.body.cabin}, {
-                tickets: {
-                    sold: newSold,
-                    available: event.tickets.available    
-                }
-            });
-
-            // Skapa biljetter och skicka tillbaka till FE
-            let bookings = [];
-
-            for(i=0; i<req.body.amount; i++){
-
+            for(i = 0; i < req.body.amount; i++) {
                 let booking = {
-                    booking: booking,
+                    cabin: cabin,
                     code: uid(5),
                     used: false
                 }
-
-                bookings.push(booking);
+                eBooking.push(booking);
             }
 
-            // write tickets to Mongo
-            let resp = await Booking.create(bookings);
+            // write bookings to Mongo
+            let resp = await Booking.create(eBooking);
 
             // Send to FrontEnd
             res.status(200).send(resp);
 
-        } else {
-            // Finns INTE biljetter kvar.
-            console.info('Sorry, all cabins are sold.');
-            res.status(200).send('Sorry, all cabins are sold.');
-        }
-
     } catch(err) {
-        res.status(500).send(err.stack);
+        res.status(404).send(err.stack);
     }
 }
 
