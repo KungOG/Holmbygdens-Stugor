@@ -5,6 +5,7 @@
         <h1>{{ cabin.name }}</h1>
         <article class="price">{{ cabin.price * amount }} sek</article><br>
         <p>Var vänlig och fyll i datum du vill boka</p>
+        <em><strong>OBS! Ni måste minst boka 3 nätter.</strong></em>
         <HotelDatePicker
         :minNights="3" 
         placeholder="RentDays"

@@ -54,7 +54,7 @@ export default {
       localStorage.setItem('eBooked', JSON.stringify(eBooked.data));
     },
     /* Hämta lokala bokningar */
-    getBooking (ctx) {
+    getBooked (ctx) {
       let eBooked = localStorage.getItem('eBooked');
       ctx.commit('setBooked', JSON.parse(eBooked));
     },

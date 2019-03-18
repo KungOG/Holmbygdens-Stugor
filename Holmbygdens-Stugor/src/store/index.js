@@ -1,7 +1,5 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import axios from "axios";
-
 
 /* Moduler */
 import state from './state'

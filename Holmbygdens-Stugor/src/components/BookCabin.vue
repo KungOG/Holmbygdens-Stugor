@@ -1,13 +1,25 @@
 <template>
-    <article>
+    <article class="ebooking">
         <section>
-            <h1>{{eBooking.cabin.name}}</h1>
+            <p>Här är eran biljett till 
+                {{eBooked.cabin.name}}.</p>
         </section>
         <section>
-            <p>{{eBooking.cabin.date}}</p>
-            <p>{{eBooking.cabin.info}}</p>
+            <p>Tillgång från: 
+                {{eBooked.cabin.date.from}}
+                 till 
+                 {{eBooked.cabin.date.to}}.</p>
+            <p>Incheckning sker
+                {{eBooked.cabin.date.checkin}} 
+                och ni måste senast ha utcheckat till
+                {{eBooked.cabin.date.checkout}}</p>   
         </section>
         <section>
+            <p>{{eBooked.cabin.info}}</p>   
+            <p>Observera att erat referens nummer är
+            <strong>{{eBooked.code}}</strong></p><p><em>
+            Ha det alltid till hands när ni ska 
+            checka in och checka ut</em></p>
 
         </section>
     </article>
@@ -16,6 +28,6 @@
 <script>
 export default {
     name : 'bookcabin',
-    props : ['eBooking']
+    props : ['eBooked']
 }
 </script>

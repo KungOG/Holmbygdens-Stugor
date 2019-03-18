@@ -1,25 +1,25 @@
 <!-- Detta är i slutet av bokningsprocessen där du ser din bokning. Steg 4 av 4 -->
 <template>
-    <main class="">
-        <bookcabin v-for="(eBooking, index) in eBooking" :key="index" :eBooked="eBooked" />
+    <main class="content">
+        <BookCabin v-for="(eBooked, index) in eBooked" :key="index" :eBooked="eBooked" />
     </main>
 </template>
 
 <script>
-import bookcabin from '@/components/BookCabin.vue'
+import BookCabin from '@/components/BookCabin'
 
 export default {
     name : 'booked',
     components : {
-        bookcabin
+        BookCabin
     },
     computed : {
-        eBooking () {
-            return this.$store.state.eBooking;
+        eBooked () {
+            return this.$store.state.eBooked;
         }
     },
     beforeMount () {
-        if (localStorage.getItem('eBooking')) {
+        if (localStorage.getItem('eBooked')) {
             this.$store.dispatch('getBooked');
         }
     }
