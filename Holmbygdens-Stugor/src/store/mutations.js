@@ -6,6 +6,10 @@ export default {
 toggleRejected(state){
   state.rejected = !state.rejected;
 },
+    /* Har du bokat en stuga så lagras den här */
+    setBooked(state, eBooking) {
+        state.eBooking = eBooking;
+    },
     /* Våra stugor som finns på våran DB samlas här */
     setCabins (state, cabins) {
         state.cabins = cabins;

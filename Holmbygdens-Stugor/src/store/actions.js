@@ -47,6 +47,18 @@ export default {
         await axios.patch(`http://localhost:3000/cabins/`, cabinData);
         ctx.dispatch('getCabin');
     },
+    /* Skicka bokningen till datorbasen */
+    async booked (ctx, setBooked) {
+      let eBooked = await axios.post('http://localhost:3000/bookings', setBooked);
+      ctx.commit('setBooked', eBooked.data);
+      localStorage.setItem('eBooked', JSON.stringify(eBooked.data));
+    },
+    /* Hämta lokala bokningar */
+    getBooking (ctx) {
+      let eBooked = localStorage.getItem('eBooked');
+      ctx.commit('setBooked', JSON.parse(eBooked));
+    },
+
     async verifyBooking(ctx, code){
         let verification = await axios.get(`http://localhost:3000/verify/${code}`);
         ctx.commit('setVerifyData', verification.data);
