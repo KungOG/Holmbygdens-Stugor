@@ -48,8 +48,8 @@ export default {
         ctx.dispatch('getCabin');
     },
     /* Skicka bokningen till datorbasen */
-    async booked (ctx, setBooked) {
-      let eBooked = await axios.post('http://localhost:3000/bookings', setBooked);
+    async booked (ctx, booked) {
+      let eBooked = await axios.post('http://localhost:3000/bookings', booked);
       ctx.commit('setBooked', eBooked.data);
       localStorage.setItem('eBooked', JSON.stringify(eBooked.data));
     },

@@ -39,7 +39,7 @@ export default {
         booked () {
             this.$store.dispatch('booked', {
                 cabin : this.cabin._id,
-                armount : this.amount
+                amount : this.amount
             })
             this.$router.push('/booked')
         },
