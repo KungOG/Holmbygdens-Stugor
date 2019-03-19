@@ -13,8 +13,8 @@ export default {
     name: 'login',
     data(){
         return {
-        username: '',
-        password: '',
+        username: 'Alexandra',
+        password: '123',
         validUsername: true,
         validPassword: true
         }

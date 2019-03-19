@@ -1,6 +1,7 @@
 <!-- Detta är bokningsprocessen där du därefter kommer att bekräfta ditt datum. Steg 2 av 4-->
 <template>
     <main class="content">
+
         <p v-if="cabin" :cabin="cabin">Du har just nu valt: {{cabin.name}} stugan.</p>
         <button @click="setCabin(cabin)">Boka Stuga</button>
     </main>
