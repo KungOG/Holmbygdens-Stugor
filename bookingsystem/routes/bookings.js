@@ -15,7 +15,6 @@ module.exports.post = async (req, res) => {
                 let booking = {
                     cabin: cabin,
                     code: uid(5),
-                    used: false
                 }
                 eBooking.push(booking);
             }
