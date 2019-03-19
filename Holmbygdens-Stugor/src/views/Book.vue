@@ -8,7 +8,13 @@
         <em><strong>OBS! Ni måste minst boka 3 nätter.</strong></em>
         <input type="date" :min="today" v-model="checkIn"/>
         <input type="date" :min="checkIn" v-model="checkOut"/>
-      <a href="#" class="btn" @click="booked">Booka din Stuga</a>
+
+        <div id="app">
+      <p v-if="seen"><a v-if="seen" href="#" class="btn" @click="booked">Booka din Stuga</a>
+      <br> Är du säker på att du vill boka?</p>
+      <a href="#" v-if="!seen" v-on:click="seen = !seen">Booka din Stuga</a>
+      </div>
+
     </section>
     <section class="content" v-if="!cabin">
       <p>Ingen bokning vald.</p>
@@ -24,11 +30,13 @@ export default {
     components : {
         HotelDatePicker
     },
+
     data () {
         return {
             amount : 1,
             checkIn: null,
-            checkOut: null
+            checkOut: null,
+            seen: false,
         }
     },
     computed: {
