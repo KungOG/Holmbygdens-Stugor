@@ -4,6 +4,12 @@ export default {
     apiUrl: 'http://localhost:3000',
     activeUser: '',
     rejected: false,
+    authOptions: {
+        headers: {
+          authorization:`Bearer ${sessionStorage.getItem('loginToken')}`
+        }
+    },
     eBooked : [],
-    verifyData : false
+    verifyData : false,
+    bookings : []
 }

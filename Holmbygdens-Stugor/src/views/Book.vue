@@ -6,10 +6,8 @@
         <article class="price">{{ cabin.price * amount }} sek</article><br>
         <p>Var vänlig och fyll i datum du vill boka</p>
         <em><strong>OBS! Ni måste minst boka 3 nätter.</strong></em>
-        <HotelDatePicker
-        :minNights="3" 
-        placeholder="RentDays"
-        v-on:dateChanged="getDate" />
+        <input type="date" :min="today" v-model="checkIn"/>
+        <input type="date" :min="checkIn" v-model="checkOut"/>
       <a href="#" class="btn" @click="booked">Booka din Stuga</a>
     </section>
     <section class="content" v-if="!cabin">
@@ -29,6 +27,8 @@ export default {
     data () {
         return {
             amount : 1,
+            checkIn: null,
+            checkOut: null
         }
     },
     computed: {
@@ -44,8 +44,11 @@ export default {
             })
             this.$router.push('/booked')
         },
-        getDate () {
-            console.log();
+        getDate (e) {
+            console.log(e);
+        },
+        handleDate(){
+            console.log(this);
         }
     }
 }

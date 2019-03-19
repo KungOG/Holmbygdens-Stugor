@@ -3,14 +3,22 @@
     <main>
         <section>
             <h1>Aktiva bokningar</h1>
-         
+            
+        </section>
+        <section>
+            <h1>Historik bokningar</h1>
         </section>
     </main>
 </template>
 
 <script>
 export default {
-    name : 'booking'
+    name : 'booking',
+    computed : {
+        bookings () {
+            return this.$store.state.bookings;
+        }
+    }
 }
 </script>
 

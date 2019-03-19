@@ -6,6 +6,6 @@ let bookingSchema = new Schema({
     code: String
 })
 
-let Booking = mongoose.model('eBooking', bookingSchema);
+let Booking = mongoose.model('booking', bookingSchema);
 
 module.exports = Booking;

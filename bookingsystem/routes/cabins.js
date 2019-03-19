@@ -1,4 +1,5 @@
 // Cabins
+let auth = require('./auth');
 
 // model
 let Cabin = require('../models/cabin');
@@ -20,8 +21,15 @@ module.exports.get = async (req, res) => {
 
 /* Här redigerar vi en gammal stuga ifall infon blivit fel eller liknande */
 module.exports.patch = async (req, res) => {
-    try { 
+
+    if( await auth.verifyToken(req.headers.authorization)){
+    
+        try { 
+        
+        
         console.log('Du lyckades med att redigera en stuga!')
+        
+
         res.status(200).send(await Cabin.findOneAndUpdate({_id : req.body.cabin._id},
             {
                 name : req.body.cabin.name,
@@ -40,9 +48,14 @@ module.exports.patch = async (req, res) => {
                     unavailable : req.body.cabin.cabin.unavailable
                 }
             }))
+
+        
     } catch {
         res.status(404).send(err.stack);
     }
+} else {
+    res.status(500).send('ajbaja')
+}
 }
 
 /* Här bygger vi en ny stuga ifall vi har fått en ny stuga */

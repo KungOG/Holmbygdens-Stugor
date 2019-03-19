@@ -1,0 +1,10 @@
+$baseline: 1.8rem;
+
+$green: rgb(39, 155, 101);
+$red: rgb(209, 62, 62);
+
+%center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

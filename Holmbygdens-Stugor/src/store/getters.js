@@ -1,14 +1,5 @@
-import axios from 'axios'
-export default {
 
-  async getCabins(){
-  let opt ={
-    headers: {
-      authorization:`Bearer ${sessionStorage.getItem('loginToken')}`
-    }
-  }
-  let cabin = await axios.get(`http://localhost:3000/cabins`, opt );
-},
+export default {
     cabins (state) {
         return state.cabins;
     },

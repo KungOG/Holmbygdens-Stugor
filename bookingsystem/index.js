@@ -39,6 +39,7 @@ App.route('/cabins/:cabinId')
 
 App.route('/bookings')
 .post(bookings.post)
+.get(bookings.get)
 
 App.route('/bookings/:bookingId')
 .delete(bookings.delete)
@@ -57,7 +58,7 @@ App.route('/cabins')
 .get(cabins.get)
 
 // Auth Middleware
-App.use((req, res, next) => {
+/*App.use((req, res, next) => {
 
     console.log(req.headers);
 
@@ -68,6 +69,7 @@ App.use((req, res, next) => {
     }
 
 })
+*/
 
 
 

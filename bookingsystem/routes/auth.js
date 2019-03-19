@@ -62,14 +62,16 @@ module.exports.verifyToken = async (token) => {
 
     try {
         // Verify JWT with process.env.PASSWORD, return token
-        await jwt.verify(
+        let response = await jwt.verify(
             token.substring(7),
             process.env.PASSWORD
-        ) 
+        )
+
         return response.uid;
     } catch(err){
         // if error = not valid token, return 'not valid token.'
         console.log('De gick ej hela vägen!');
+        console.log(err.stack);
         return false;
     }
 }
