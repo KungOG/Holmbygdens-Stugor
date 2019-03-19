@@ -17,7 +17,7 @@
         <section>
             <p>{{eBooked.info}}</p>   
             <p>Observera att erat referens nummer är
-            <strong>{{code}}</strong></p>
+            <strong>{{eBooked.code}}</strong></p>
             <p><em>Ha det alltid till hands när ni ska 
             checka in och checka ut</em></p>
         </section>
