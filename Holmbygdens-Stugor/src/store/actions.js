@@ -10,7 +10,7 @@ export default {
       let token = await axios.post(`${ctx.state.apiUrl}/auth`, loginData)
       console.log(token);
       // Set token in session storage
-      sessionStorage.setItem('vueauthdemo', token.data.authToken);
+      sessionStorage.setItem('loginToken', token.data.auth);
       // update activeUser for UI ( ex. "Greger is logged in." )
       ctx.commit('setActiveUser', token.data.username);
     } catch(err) {
@@ -23,8 +23,6 @@ export default {
       console.error(err);
     }
   },
-
-
     /* Hämta stugorna ifrån Databasen */
     async getCabin (ctx) {
         let cabins = await axios.get('http://localhost:3000/cabins');

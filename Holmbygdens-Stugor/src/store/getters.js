@@ -4,10 +4,10 @@ export default {
   async getCabins(){
   let opt ={
     headers: {
-      authorization:`Bearer ${sessionStorage.getItem('vueauthdemo')}`
+      authorization:`Bearer ${sessionStorage.getItem('loginToken')}`
     }
   }
-  let products = await axios.get(`http://localhost:3000/cabins`, opt );
+  let cabin = await axios.get(`http://localhost:3000/cabins`, opt );
 },
     cabins (state) {
         return state.cabins;

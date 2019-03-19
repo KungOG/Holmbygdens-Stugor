@@ -5,8 +5,7 @@
         <router-link to="/">Home</router-link> 
         <router-link to="/booking">Booking</router-link> 
         <router-link to="/profile">Profile</router-link> 
-        <router-link to="/admin">Admin</router-link>        
-        <router-link to="/login">Login</router-link>        
+        <router-link to="/admin">Admin</router-link>               
       </div>
       </Slide>
         <img alt="stuga i skogen" src="@/assets/cabin.jpg">

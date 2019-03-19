@@ -1,6 +1,6 @@
 module.exports.isAuthenticated = () => {
     
-    if(sessionStorage.getItem(['authdemo'])){
+    if(sessionStorage.getItem(['loginToken'])){
         // Logged in 
         return true;
     } else {
