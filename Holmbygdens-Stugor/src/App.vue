@@ -8,7 +8,7 @@
         <router-link to="/admin">Admin</router-link>               
       </div>
       </Slide>
-        <img alt="stuga i skogen" src="@/assets/cabin.jpg">
+        <img class="home-picture" alt="stuga i skogen" src="@/assets/cabin.png">
       <router-view/>
   </div>
 </template>

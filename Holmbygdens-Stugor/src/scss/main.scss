@@ -10,62 +10,64 @@
 body {
   margin : 0;
   height : 100vh;
-  background : rgb(31, 53, 17);
+  background : whitesmoke;
 }
 #app {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: black;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: black;
 
-    img {
-        max-width: 100%;
-      }
+  .home-picture {
+    position: fixed;
+    left : 4.7rem;
+    top : 2rem;
+    z-index: -1000;
+  }
+  #book {
+    background : darkgrey;
+  
+  }
+  .content {
+    display : grid;
 
-    #book {
-      background : darkgrey;
+    /* CSS i Admin sidan */
+    .cabin {
+      background : lightcoral;
+      padding : 1.5rem;
+
+      .addCabin {
+        background : darkcyan;
+        padding : 1rem .5rem;
+        display : grid;
     
-    }
-    .content {
-      display : grid;
-
-      /* CSS i Admin sidan */
-      .cabin {
-        background : lightcoral;
-        padding : 1.5rem;
-
-        .addCabin {
-          background : darkcyan;
-          padding : 1rem .5rem;
-          display : grid;
-      
-          input {
-            padding : .5rem;
-          }
-      
-          & a.btn {
-            padding : 1rem;
-            background : yellowgreen;
-            text-decoration : none;
-          }
+        input {
+          padding : .5rem;
         }
+    
+        & a.btn {
+          padding : 1rem;
+          background : yellowgreen;
+          text-decoration : none;
+        }
+      }
 
-        ul {
+      ul {
 
-          li {
-            display : flex;
-            justify-content : space-between;
-            font-weight : bold;
-            font-size : 1.5rem;
-            em {
-              font-weight: normal !important;
-              font-size: 1rem;
-            }
+        li {
+          display : flex;
+          justify-content : space-between;
+          font-weight : bold;
+          font-size : 1.5rem;
+          em {
+            font-weight: normal !important;
+            font-size: 1rem;
           }
         }
       }
     }
+  }
 
   /* Navigationen */
   #nav {

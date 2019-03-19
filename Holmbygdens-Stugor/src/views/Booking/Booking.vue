@@ -4,8 +4,8 @@
         <section class="cabin">
         <h1>Val av Stuga</h1>
 
-        <select v-model="author" @change="handlePlace">
-          <option v-for="cabin in cabins" :key="cabin._id" :value="cabin._id"> {{ cabin.where.city }} </option>
+        <select v-model="cabin" @change="handlePlace">
+          <option v-for="cabin in cabins" :key="cabin._id" :value="cabin._id"> {{ cabin.name }} </option>
         </select>
 
         <section id="input">
@@ -52,7 +52,7 @@ export default {
     },
     methods: {
     handlePlace(){
-      this.$router.push(`/booking/${this.author}`);
+      this.$router.push(`/booking/${this.cabin}`);
     }
     }
 }
