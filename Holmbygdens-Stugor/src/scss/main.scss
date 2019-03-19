@@ -18,23 +18,23 @@ body {
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: black;
-    
+
     img {
         max-width: 100%;
       }
 
     #book {
       background : darkgrey;
-    
+
       .addCabin {
         background : darkcyan;
         padding : 1rem .5rem;
         display : grid;
-    
+
         input {
           padding : .5rem;
         }
-    
+
         & a.btn {
           padding : 1rem;
           background : yellowgreen;
@@ -64,7 +64,7 @@ body {
           }
         }
       }
-    } 
+    }
 
   /* Navigationen */
   #nav {
@@ -74,18 +74,16 @@ body {
     font-size : 1.5rem;
     position: absolute;
     flex-direction : column;
-    
+
     /* Länkar och även aktiva sidorna */
     a {
       font-weight : bold;
       color : white;
       text-decoration: none;
-      
+
       &.router-link-exact-active {
         color : red;
       }
     }
   }
 }
-
-

@@ -4,6 +4,10 @@
         <section class="cabin">
         <h1>Val av Stuga</h1>
 
+        <select v-model="author" @change="handlePlace">
+          <option v-for="cabin in cabins" :key="cabin._id" :value="cabin._id"> {{ cabin.where.city }} </option>
+        </select>
+
         <section id="input">
       <input type="text" v-model="search" placeholder="Filter results" />
     </section>
@@ -24,7 +28,9 @@ export default {
     name : 'booking',
     data(){
       return {
-        search: ""
+        search: "",
+        author: "",
+        cabin: ""
       }
     },
     beforeMount () {
@@ -38,9 +44,16 @@ export default {
         },
         filteredCabins(){
             return this.cabins.filter((cabin) => {
-              return cabin.name.match(this.search);
+            let results = cabin.name.match(this.search);
+              this.cabin = results;
+              return results;
             })
           }
+    },
+    methods: {
+    handlePlace(){
+      this.$router.push(`/booking/${this.author}`);
+    }
     }
 }
 </script>
