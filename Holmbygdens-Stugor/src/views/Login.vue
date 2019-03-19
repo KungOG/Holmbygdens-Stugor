@@ -1,10 +1,6 @@
 <template>
     <main id="login">
         <article class="modal">
-            <figure>
-                <img src="../assets/logo.png" alt="Logo">
-                <figcaption>Vue Auth Demo</figcaption>
-            </figure>
             <input v-model="username" type="text" class="username" placeholder="username" :class="{ valid : validUsername, rejected : rejected}">
             <input v-model="password" type="password" placeholder="password" :class="{ valid : validPassword }">
             <a href="#" class="btn" @click="login" :class="{ ready : validPassword && validUsername }">Login</a>

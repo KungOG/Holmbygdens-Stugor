@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import auth from './auth'
 
 Vue.use(Router)
 
@@ -14,7 +15,8 @@ let router = new Router({
     {
       path: '/login',
       name: 'login',
-      component: () => import('./views/Login.vue')
+      component: () => 
+        import('./views/Login.vue')
     },
     {
       path : '/book/:id',
@@ -53,6 +55,9 @@ let router = new Router({
       name : 'admin',
       component : () =>
         import('./views/Admin.vue'),
+      meta: { 
+          requiresAuth: true
+      },
         children : [
           {
             path : '/addcabin',

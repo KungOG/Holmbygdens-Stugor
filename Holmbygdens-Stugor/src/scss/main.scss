@@ -26,21 +26,6 @@ body {
     #book {
       background : darkgrey;
     
-      .addCabin {
-        background : darkcyan;
-        padding : 1rem .5rem;
-        display : grid;
-    
-        input {
-          padding : .5rem;
-        }
-    
-        & a.btn {
-          padding : 1rem;
-          background : yellowgreen;
-          text-decoration : none;
-        }
-      }
     }
     .content {
       display : grid;
@@ -49,6 +34,22 @@ body {
       .cabin {
         background : lightcoral;
         padding : 1.5rem;
+
+        .addCabin {
+          background : darkcyan;
+          padding : 1rem .5rem;
+          display : grid;
+      
+          input {
+            padding : .5rem;
+          }
+      
+          & a.btn {
+            padding : 1rem;
+            background : yellowgreen;
+            text-decoration : none;
+          }
+        }
 
         ul {
 
