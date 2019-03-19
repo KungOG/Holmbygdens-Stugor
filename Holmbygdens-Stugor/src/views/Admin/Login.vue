@@ -56,7 +56,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../scss/variables';
+@import '../../scss/variables';
    #login {
         @extend %center;
 

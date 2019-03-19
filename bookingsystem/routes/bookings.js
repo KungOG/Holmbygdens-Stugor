@@ -2,38 +2,13 @@
 
 // model
 let Booking = require('../models/booking');
-let Cabin = require('../models/cabin');
 let auth = require('./auth');
 
-// POST
-module.exports.post = async (req, res) => {
 
-    try {
-        let cabin = await Cabin.findById(req.body.cabin);
-            let booking = [];
-
-            for(i = 0; i < req.body.amount; i++) {
-                let booking = {
-                    cabin: cabin,
-                    code: uid(5),
-                }
-                booking.push(booking);
-            }
-
-            // write bookings to Mongo
-            let resp = await Booking.create(booking);
-
-            // Send to FrontEnd
-            res.status(200).send(resp);
-
-    } catch(err) {
-        res.status(404).send(err.stack);
-    }
-}
 module.exports.get = async (req, res) => {
-
+    
     try {
-
+      
         res.status(200).send( await Booking.find({}) );        
     
     } catch(err){
@@ -43,6 +18,25 @@ module.exports.get = async (req, res) => {
     }
 
 }
+// POST
+module.exports.post = async (req, res) => {
+
+    try {
+
+        let booking = {
+            cabin: req.body.cabin,
+            code: uid(5),
+        }
+        // write bookings to Mongo
+        let resp = await Booking.create(booking);
+
+        // Send to FrontEnd
+        res.status(200).send(resp);
+
+    } catch(err) {
+        res.status(404).send(err.stack);
+    }
+}
 
 /* När vi behöver avboka en bokning */
 module.exports.delete = async (req, res) => {
@@ -51,9 +45,8 @@ module.exports.delete = async (req, res) => {
 
         // Kolla om användaren är admin
         if(auth.verifyToken(req.headers.authorization)){
-
-            res.status(200).send( await Cabin.findOneAndDelete({_id: req.params.bookingId}));
-
+            res.status(200).send( await Booking.findOneAndDelete
+            ({_id: req.params.bookingId}));
         }
     
     } catch(err) {

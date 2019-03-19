@@ -5,8 +5,7 @@
         <h1>{{ cabin.name }}</h1>
         <article class="price">{{ cabin.price * amount }} sek</article><br>
         <p>Var vänlig och fyll i datum du vill boka</p>
-        <em><strong>OBS! Ni måste minst boka 3 nätter.</strong></em>
-        <input type="date" :min="today" v-model="checkIn"/>
+        <input type="date" :min="new Date()" v-model="checkIn"/>
         <input type="date" :min="checkIn" v-model="checkOut"/>
 
         <div id="app">
@@ -24,13 +23,8 @@
 </template>
 
 <script>
-import HotelDatePicker from 'vue-hotel-datepicker'
 export default {
     name : 'book',
-    components : {
-        HotelDatePicker
-    },
-
     data () {
         return {
             amount : 1,
@@ -45,18 +39,17 @@ export default {
         }
     },
     methods : {
+        /* Skicka med datumen som man får ange för sin bokning */
         booked () {
+            let newCabin = this.cabin;
+                newCabin.date.from = this.checkIn
+                newCabin.date.to = this.checkOut
+            /* Skicka sedan iväg till Action för att utföra bokningen*/
             this.$store.dispatch('booked', {
-                cabin : this.cabin._id,
-                amount : this.amount
+                cabin : newCabin
             })
+            /* Skicka vidare där kunden får se sin bokning */
             this.$router.push('/booked')
-        },
-        getDate (e) {
-            console.log(e);
-        },
-        handleDate(){
-            console.log(this);
         }
     }
 }

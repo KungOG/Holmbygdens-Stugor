@@ -15,26 +15,26 @@ let router = new Router({
     {
       path: '/login',
       name: 'login',
-      component: () => 
-        import('./views/Login.vue')
+      component: () =>
+        import('./views/Admin/Login.vue')
     },
     {
       path : '/book/:id',
       name : 'book',
       component : () =>
-        import('./views/Book.vue')
+        import('./views/Booking/Book.vue')
     },
     {
       path: '/booking',
       name: 'booking',
       component : () =>
-        import('./views/Booking.vue'),
+        import('./views/Booking/Booking.vue'),
         children : [
           {
           path : '/booking/:id',
           name : 'pickdate',
           component : () =>
-            import('./components/Pickdate.vue')
+            import('./components/Booking/Pickdate.vue')
           }
         ]
     },
@@ -42,7 +42,7 @@ let router = new Router({
       path: '/booked',
       name: 'booked',
       component : () =>
-        import('./views/Booked.vue')
+        import('./views/Booking/Booked.vue')
     },
     {
       path: '/profile',
@@ -54,8 +54,8 @@ let router = new Router({
       path : '/admin',
       name : 'admin',
       component : () =>
-        import('./views/Admin.vue'),
-      meta: { 
+        import('./views/Admin/Admin.vue'),
+      meta: {
           requiresAuth: true
       },
         children : [
@@ -63,32 +63,32 @@ let router = new Router({
             path : '/addcabin',
             name : 'add-cabin',
             component : () =>
-              import('./components/Addcabin.vue'),
+              import('./components/Admin/Addcabin.vue'),
           },
           {
             path : '/bookings',
             name : 'bookings',
             component : () =>
-              import('./components/Bookings.vue'),
+              import('./components/Admin/Bookings.vue'),
           },
           {
             path: '/verify',
             name: 'verify',
             component: () =>
-              import('./components/Verify.vue')
+              import('./components/Admin/Verify.vue')
           },
           {
             path : '/cabins',
             name : 'cabins',
             component : () =>
-              import('./components/Cabins.vue'),
+              import('./components/Admin/Cabins.vue'),
 
               children : [
               {
                 path : '/cabins/:id',
                 name : 'cabin',
                 component : () =>
-                  import('./components/Cabin.vue')
+                  import('./components/Admin/Cabin.vue')
               }
             ]
         }

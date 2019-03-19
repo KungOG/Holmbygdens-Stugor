@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import BookCabin from '@/components/BookCabin'
+import BookCabin from '@/components/Booking/BookCabin'
 
 export default {
     name : 'booked',

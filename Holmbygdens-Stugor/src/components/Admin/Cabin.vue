@@ -37,9 +37,11 @@ export default {
         }
     },
     methods : {
+        /* Skicka iväg till Actions för att ta bort en bokning*/
         deleteCabin () {
            this.$store.dispatch('deleteCabin', this.id);
         },
+        /* Skicka iväg till Actions ifall du behöver redigera en bokning */
         redoCabin (cabin, id) {
             this.$store.dispatch('redoCabin', {cabin : cabin, id : id})
         }

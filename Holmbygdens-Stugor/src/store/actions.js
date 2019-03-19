@@ -31,7 +31,7 @@ export default {
     /* Hämta alla bokningar ifrån Databasen */
     async bookedCabins (ctx) {
         let bookings = await axios.get('http://localhost:3000/bookings');
-        ctx.commit('setCabins', bookings.data);
+        ctx.commit('setBookings', bookings.data);
     },
     /* Samlar information som sedan skickas till våran DB som bygger en ny stuga */
     async makeCabin (ctx, cabin) {
@@ -43,10 +43,15 @@ export default {
         await axios.delete(`http://localhost:3000/cabins/${id}`);
         ctx.dispatch('getCabin');
     },
+    /* Ta bort en bokning ifall det blivit något fel */
+    async deleteBooking (ctx, id) {
+        console.log('innan')
+        await axios.delete(`http://localhost:3000/bookings/${id}`);
+        ctx.dispatch('bookedCabins');
+    },
     /* Skickar med information om */
     async redoCabin (ctx, cabinData) {
         console.log(cabinData, 'skicka')
-        
         await axios.patch(`http://localhost:3000/cabins/`, cabinData, ctx.state.authOptions);
         ctx.dispatch('getCabin');
     },
@@ -57,8 +62,8 @@ export default {
       localStorage.setItem('eBooked', JSON.stringify(eBooked.data));
     },
     /* Hämta lokala bokningar */
-    getBooked (ctx) {
-      let eBooked = localStorage.getItem('eBooked');
+    async getBooked (ctx) {
+      let eBooked = await localStorage.getItem('eBooked');
       ctx.commit('setBooked', JSON.parse(eBooked));
     },
 
