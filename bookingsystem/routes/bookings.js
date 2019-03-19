@@ -2,9 +2,22 @@
 
 // model
 let Booking = require('../models/booking');
-let Cabin = require('../models/cabin');
 let auth = require('./auth');
 
+
+module.exports.get = async (req, res) => {
+    
+    try {
+      
+        res.status(200).send( await Booking.find({}) );        
+    
+    } catch(err){
+    
+        res.status(500).send(err.stack);
+    
+    }
+
+}
 // POST
 module.exports.post = async (req, res) => {
 
@@ -24,19 +37,6 @@ module.exports.post = async (req, res) => {
         res.status(404).send(err.stack);
     }
 }
-module.exports.get = async (req, res) => {
-
-    try {
-
-        res.status(200).send( await Booking.find({}) );        
-    
-    } catch(err){
-    
-        res.status(500).send(err.stack);
-    
-    }
-
-}
 
 /* När vi behöver avboka en bokning */
 module.exports.delete = async (req, res) => {
@@ -45,9 +45,8 @@ module.exports.delete = async (req, res) => {
 
         // Kolla om användaren är admin
         if(auth.verifyToken(req.headers.authorization)){
-
-            res.status(200).send( await Cabin.findOneAndDelete({_id: req.params.bookingId}));
-
+            res.status(200).send( await Booking.findOneAndDelete
+            ({_id: req.params.bookingId}));
         }
     
     } catch(err) {

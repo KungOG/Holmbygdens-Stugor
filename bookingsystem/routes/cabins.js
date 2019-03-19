@@ -25,12 +25,9 @@ module.exports.patch = async (req, res) => {
     if( await auth.verifyToken(req.headers.authorization)){
     
         try { 
-        
-        
-        console.log('Du lyckades med att redigera en stuga!')
-        
-
-        res.status(200).send(await Cabin.findOneAndUpdate({_id : req.body.cabin._id},
+            console.log('Du lyckades med att redigera en stuga!')
+            res.status(200).send(await Cabin.findOneAndUpdate({
+                _id : req.body.cabin._id},
             {
                 name : req.body.cabin.name,
                 price: req.body.cabin.price,
