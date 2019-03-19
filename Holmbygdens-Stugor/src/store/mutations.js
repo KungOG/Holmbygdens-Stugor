@@ -18,8 +18,8 @@ toggleRejected(state){
     setCabin (state, cabin) {
         state.cabin = cabin;
     },
-    setVerifyData(state, data){
-        state.verifyData = data;
+    setVerifyData(state, verifyData){
+        state.verifyData = verifyData;
       }
 
 }

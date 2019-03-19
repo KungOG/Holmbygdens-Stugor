@@ -3,5 +3,6 @@ export default {
     cabin : {},
     activeUser: '',
     rejected: false,
-    eBooked : []
+    eBooked : [],
+    verifyData : false
 }

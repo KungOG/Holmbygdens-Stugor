@@ -1,11 +1,15 @@
 <template>
     <main class="addCabin">
     <h1>Verifiera bokningen</h1>
-    <section class="verification" v-if="verificaton">
-        <h1 v-if="verificaton.verified">Giltlig!</h1>
-        <h1 v-if="!verificaton.verified">Ej giltlig bokning</h1>
-        {{ verificaton.msg}}
-    </section>
+
+  <section class="verification" v-if="verificaton">
+    <article v-if="verificaton.verified">
+      <h1 >Giltlig!</h1>
+      <p>Du har bokat stugan {{ verificaton.msg.cabin.name }}</p>
+    </article>
+​
+    <h1 v-if="!verificaton.verified">Ej giltlig bokning</h1>
+  </section> 
     <section class="form">
         <input type="text" name="code" 
         :value="code.toUpperCase()" 

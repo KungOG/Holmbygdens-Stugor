@@ -60,7 +60,8 @@ export default {
     },
 
     async verifyBooking(ctx, code){
-        let verification = await axios.get(`http://localhost:3000/verify/${code}`);
-        ctx.commit('setVerifyData', verification.data);
+      console.log('iygad')
+        let verifyData = await axios.get(`http://localhost:3000/verify/${code}`);
+        ctx.commit('setVerifyData', verifyData.data);
       }
 }
