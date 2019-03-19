@@ -9,22 +9,16 @@ let auth = require('./auth');
 module.exports.post = async (req, res) => {
 
     try {
-        let cabin = await Cabin.findById(req.body.cabin);
-            let booking = [];
 
-            for(i = 0; i < req.body.amount; i++) {
-                let booking = {
-                    cabin: cabin,
-                    code: uid(5),
-                }
-                booking.push(booking);
-            }
+        let booking = {
+            cabin: req.body.cabin,
+            code: uid(5),
+        }
+        // write bookings to Mongo
+        let resp = await Booking.create(booking);
 
-            // write bookings to Mongo
-            let resp = await Booking.create(booking);
-
-            // Send to FrontEnd
-            res.status(200).send(resp);
+        // Send to FrontEnd
+        res.status(200).send(resp);
 
     } catch(err) {
         res.status(404).send(err.stack);

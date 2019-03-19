@@ -6,7 +6,7 @@
         <article class="price">{{ cabin.price * amount }} sek</article><br>
         <p>Var vänlig och fyll i datum du vill boka</p>
         <em><strong>OBS! Ni måste minst boka 3 nätter.</strong></em>
-        <input type="date" :min="today" v-model="checkIn"/>
+        <input type="date" :min="new Date()" v-model="checkIn"/>
         <input type="date" :min="checkIn" v-model="checkOut"/>
       <a href="#" class="btn" @click="booked">Booka din Stuga</a>
     </section>
@@ -18,12 +18,8 @@
 </template>
 
 <script>
-import HotelDatePicker from 'vue-hotel-datepicker'
 export default {
     name : 'book',
-    components : {
-        HotelDatePicker
-    },
     data () {
         return {
             amount : 1,
@@ -38,17 +34,16 @@ export default {
     },
     methods : {
         booked () {
+
+            let newCabin = this.cabin;
+                newCabin.date.from = this.checkIn
+                newCabin.date.to = this.checkOut
+            
+
             this.$store.dispatch('booked', {
-                cabin : this.cabin._id,
-                amount : this.amount
+                cabin : newCabin
             })
             this.$router.push('/booked')
-        },
-        getDate (e) {
-            console.log(e);
-        },
-        handleDate(){
-            console.log(this);
         }
     }
 }
