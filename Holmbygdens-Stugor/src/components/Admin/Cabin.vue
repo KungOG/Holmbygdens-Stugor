@@ -2,15 +2,16 @@
 <template>
     <article>
         <section class="addCabin" v-if="cabin">
-            <input type="text" placeholder="name" v-model="cabin.name">
-            <input type="text" placeholder="pris" v-model="cabin.price">
-            <input type="text" placeholder="stugområde" v-model="cabin.where.city">
-            <input type="text" placeholder="var adress" v-model="cabin.where.adress">
-            <input type="text" placeholder="datum från" v-model="cabin.date.from">
-            <input type="text" placeholder="datum till" v-model="cabin.date.to">
-            <input type="text" placeholder="otillgänliga" v-model="cabin.cabin.available">
-            <input type="text" placeholder="tillgängliga" v-model="cabin.cabin.unavailable">
-            <input type="text" placeholder="info" v-model="cabin.info">
+            <input type="text" placeholder="Name" v-model="cabin.name">
+            <input type="text" placeholder="Pris per natt" v-model="cabin.price">
+            <input type="text" placeholder="Bild länk" v-model="cabin.picture">
+            <input type="text" placeholder="Stad" v-model="cabin.where.city">
+            <input type="text" placeholder="Adress till stugan" v-model="cabin.where.adress">
+            <input type="text" placeholder="Från datum" v-model="cabin.date.from">
+            <input type="text" placeholder="Till datum" v-model="cabin.date.to">
+            <input type="text" placeholder="Antal otillgänliga stugor" v-model="cabin.cabin.available">
+            <input type="text" placeholder="Antal tillgänliga stugor" v-model="cabin.cabin.unavailable">
+            <input type="text" placeholder="Mer information om stugan" v-model="cabin.info">
             <a href="#" class="btn custombtn" @click="redoCabin(cabin, cabin._id)">Redigera Stuga</a>
             <a href="#" class="btn deletebtn" @click="id = cabin._id; deleteCabin()">Ta bort Stuga</a>         
         </section>

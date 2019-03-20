@@ -4,7 +4,7 @@
             <input v-model="username" 
             type="text" 
             placeholder="username" class="verifyinput" 
-            :class="{ valid : validUsername, rejected : rejected}">
+            :class="{ valid : validUsername}">
 
             <input v-model="password" class="verifyinput"
             type="password" placeholder="password" 
@@ -54,7 +54,6 @@ export default {
             }
         }
     }
-
 }
 </script>
 <style lang="scss">

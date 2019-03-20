@@ -74,6 +74,7 @@ export default {
       handlePlace(){
         this.$router.push(`/booking/${this.cabin}`);
     }, 
+    /* Om ingen bild skickas så visas en default bild */
     ifNoPicture (e) {
       e.target.src = noPicture
     }
