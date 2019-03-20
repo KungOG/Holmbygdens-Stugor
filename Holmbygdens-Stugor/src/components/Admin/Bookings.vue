@@ -1,7 +1,7 @@
 <!-- Detta är admin bokningssidan där du ser de aktiva bokningarna -->
 <template>
     <main>
-        <section>
+        <section class="content">
             <h1>Aktiva bokningar</h1>
                <ul>
                    <li v-for="booking in bookings" 
@@ -9,9 +9,12 @@
                     :booking="booking">
                     {{booking.code}} 
 
-                    <a href="#" class="btn"
+                    <a href="#" class="btn deletebtn"
                      @click="id = booking._id; 
                      deleteBooking()">Ta bort bokningen</a>
+                    <a href="#" class="btn custombtn"
+                     @click="id = booking._id; 
+                     customBooking()">Ändra bokningen</a>
                    </li>
                </ul>
         </section>
@@ -46,7 +49,3 @@ export default {
     }
 }
 </script>
-
-<style lang="scss">
-
-</style>

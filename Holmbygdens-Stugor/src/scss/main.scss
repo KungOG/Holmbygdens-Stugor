@@ -1,92 +1,115 @@
 /* Imports */
 @import './_buger';
-@import './_ebooking';
+@import './_variables';
+@import './_components';
 
 /* CSS i hela appen */
-
 * {
   box-sizing : border-box;
 }
 body {
-  margin : 0;
-  height : 100vh;
   background : whitesmoke;
 }
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: black;
+  font-family : 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing : antialiased;
+  -moz-osx-font-smoothing : grayscale;
+  text-align : center;
+  color : black;
+  @extend %layout;
 
+  /* Bilden på vänster sida */
   .home-picture {
-    position: fixed;
-    left : 4.7rem;
-    top : 2rem;
+    @extend %picture;  
     z-index: -1000;
+    padding : 25px 0 0 0;
+    overflow : hidden;
   }
-  #book {
-    background : darkgrey;
-  
-  }
+
+ /* All CSS i hela appen */
   .content {
+    padding : 2rem 0 0 0;
     display : grid;
-
-    /* CSS i Admin sidan */
-    .cabin {
-      background : lightcoral;
-      padding : 1.5rem;
-
-      .addCabin {
-        background : darkcyan;
-        padding : 1rem .5rem;
-        display : grid;
-    
-        input {
-          padding : .5rem;
-        }
-    
-        & a.btn {
-          padding : 1rem;
-          background : yellowgreen;
-          text-decoration : none;
-        }
-      }
-
-      ul {
-
-        li {
-          display : flex;
-          justify-content : space-between;
-          font-weight : bold;
-          font-size : 1.5rem;
-          em {
-            font-weight: normal !important;
-            font-size: 1rem;
-          }
-        }
-      }
-    }
+    border : 1px solid black;
+    @extend %input;
   }
 
   /* Navigationen */
   #nav {
-    display : flex;
-    padding : 2rem;
     color : white;
-    font-size : 1.5rem;
-    position: absolute;
-    flex-direction : column;
+    position : absolute;
+    overflow : hidden;
 
-    /* Länkar och även aktiva sidorna */
+    /* Länkarna i bugarmenyn */
     a {
       font-weight : bold;
       color : white;
-      text-decoration: none;
-
+      text-decoration : none;
+      /* Aktiv länk blir röd */
       &.router-link-exact-active {
-        color : red;
+        color : rgb(6, 122, 2);
       }
+      &:hover {
+        background : rgba(0,0,0,.3);
+      }
+    }
+  }
+}
+
+/* Admin sidan */
+thead { 
+  display : flex;
+  justify-content : center;
+  align-items : center;
+  cursor: pointer;
+  tr {
+    td {
+      font-weight : bold;
+      font-size : 1.2rem;
+      padding : 0 1rem;
+      &:hover {
+          background : rgba(255, 0, 0, 0.733);
+        
+      }
+    }
+  }
+}
+
+/* Input i Add Cabin och Stuglistan, pick-date knappen */
+.addCabin, .pick-date { 
+  display : grid;
+  grid-area : 'input';
+  @extend %input;
+}
+
+/* Stuglistan och dess CSS */
+.cabin {
+  @extend %content;
+  ul {
+    li {
+      cursor: pointer;
+      font-weight : bold;
+      font-size : 1.5rem;    
+      display : grid;
+      justify-content : space-evenly;
+      &:hover {
+          background :rgba(0, 0, 0, 0.123);
+      }
+      em {
+        font-weight : normal !important;
+        font-size : 1rem;
+      }
+    }
+  }
+}
+.availableCabins {
+  @extend %trGrid;
+  border : 1px solid black;
+  cursor: pointer;
+
+  &:hover {
+    td {
+      background :rgba(0, 0, 0, 0.123);
     }
   }
 }

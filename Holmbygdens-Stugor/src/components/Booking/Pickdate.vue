@@ -1,9 +1,9 @@
 <!-- Detta är bokningsprocessen där du kommer att bekräfta ditt datum -->
 <template>
-    <main class="content">
-        <p v-if="cabin" :cabin="cabin">Du har just nu valt: {{cabin.name}} stugan.</p>
-        <button @click="setCabin(cabin)">Boka Stuga</button>
-    </main>
+    <article class="content">
+        <p v-if="cabin" :cabin="cabin">Du har just nu valt: <strong>{{cabin.name}}</strong> stugan.</p>
+        <a href="#" class="custombtn" @click="setCabin(cabin)">Boka Stuga</a>
+    </article>
 </template>
 
 <script>
@@ -24,9 +24,4 @@ export default {
         }
     }
 }
-
 </script>
-
-<style>
-
-</style>

@@ -45,10 +45,10 @@ let router = new Router({
         import('./views/Booking/Booked.vue')
     },
     {
-      path: '/profile',
-      name: 'profile',
+      path: '/about',
+      name: 'about',
       component : () =>
-        import('./views/Profile.vue')
+        import('./views/About.vue')
     },
     {
       path : '/admin',

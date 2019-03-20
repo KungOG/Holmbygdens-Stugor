@@ -1,5 +1,5 @@
 <template>
-    <article class="ebooking" v-if="eBooked">
+    <article>
         <section>
             <p>Här är eran biljett till 
             {{eBooked.name}}.</p>
@@ -27,6 +27,6 @@
 <script>
 export default {
     name : 'bookcabin',
-    props : ['eBooked'],
+    props : ['eBooked']
 }
 </script>

@@ -1,6 +1,6 @@
 <template>
-  <div class="home">
-    <h3>Välkommen till Holmbygdens fucking stugor, här kan du boka en jävla stugjävel</h3>
+  <div class="content">
+    <h1>Välkommen till oss på Holmbygden.</h1>
   </div>
 </template>
 
@@ -10,7 +10,3 @@ export default {
   name : 'home'
 }
 </script>
-
-<style lang="scss">
-
-</style>

@@ -3,6 +3,7 @@ let Schema = mongoose.Schema;
 
 let cabinSchema = new Schema({      
     name: String,
+    picture: String,
     where: {
         city: String,
         adress: String
@@ -18,8 +19,7 @@ let cabinSchema = new Schema({
     cabin: {
         available: Number,
         unavailable: Number
-    },
-    code: String
+    }
 })
 
 let Cabin = mongoose.model('cabin', cabinSchema);

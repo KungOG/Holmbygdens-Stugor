@@ -1,19 +1,19 @@
 <!-- Detta är bokningsprocessen där du kommer att bekräfta din bokning. Steg 3 av 4 -->
 <template>
-    <main id="book">
+    <article>
     <section class="content" v-if="cabin">
         <h1>{{ cabin.name }}</h1>
         <article class="price">{{ cabin.price * amount }} sek</article><br>
         <p>Var vänlig och fyll i datum du vill boka</p>
         <input type="date" :min="new Date()" v-model="checkIn"/>
         <input type="date" :min="checkIn" v-model="checkOut"/>
-      <a href="#" class="btn" @click="booked">Booka din Stuga</a>
+      <a href="#" class="custombtn" @click="booked">Booka din Stuga</a>
     </section>
     <section class="content" v-if="!cabin">
       <p>Ingen bokning vald.</p>
-      <a href="#" class="btn" @click="$router.push('/booking')">Gå tillbaka</a>
+      <a href="#" class="deletebtn" @click="$router.push('/booking')">Gå tillbaka</a>
     </section>
-  </main>
+  </article>
 </template>
 
 <script>
@@ -47,7 +47,3 @@ export default {
     }
 }
 </script>
-
-<style lang="scss">
-
-</style>

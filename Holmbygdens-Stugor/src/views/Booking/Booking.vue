@@ -1,25 +1,22 @@
 <!-- Detta är i början av bokningsprocessen där du i steg fixar din bokning. Steg 1 av 4 -->
 <template>
-    <main class="content">
-        <section class="cabin">
-        <h1>Val av Stuga</h1>
-
-        <select v-model="author" @change="handlePlace">
-          <option v-for="cabin in cabins" :key="cabin._id" :value="cabin._id"> {{ cabin.where.city }} </option>
-        </select>
-
-        <section id="input">
-      <input type="text" v-model="search" placeholder="Filter results" />
-    </section>
-
-
-        <tr v-for="cabin in filteredCabins" :key="cabin._id" :cabin="cabin" @click="$router.push(`/booking/${cabin._id}`)">
-            <td>{{cabin.name}}</td>
-            <td>{{cabin.price}}</td>
-            <td>{{cabin.info}}</td>
+  <main>
+    <section class="content">
+      <h1>Val av Stuga</h1>
+      <select v-model="author" @change="handlePlace">
+        <option v-for="cabin in cabins" :key="cabin._id" :value="cabin._id"> {{ cabin.where.city }} </option>
+      </select>
+      <input type="text" v-model="search" placeholder="Filtrera sökning: " />
+      <tr v-for="cabin in filteredCabins" 
+      :key="cabin._id" :cabin="cabin" 
+      @click="$router.push(`/booking/${cabin._id}`)"
+      class="availableCabins">
+          <td>{{cabin.name}}</td>
+          <td>{{cabin.price}}</td>
+          <td>{{cabin.info}}</td>
         </tr>
-        </section>
-        <router-view />
+      </section>
+      <router-view />
     </main>
 </template>
 
@@ -57,11 +54,3 @@ export default {
     }
 }
 </script>
-
-<style lang="scss">
-
-.choose {
-border-style: solid;
-}
-
-</style>

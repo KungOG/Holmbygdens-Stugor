@@ -1,15 +1,15 @@
 <template>
-    <main class="content">
-    <section class="cabin">
+    <main>
+        <section  class="content">
         <thead>
             <tr>
-                <td @click="$router.push('/cabins')"> Stuglista |</td>
-                <td @click="$router.push('/addcabin')"> Lägg till Stuga |</td> 
-                <td @click="$router.push('/bookings')"> Bokningar |</td>
+                <td @click="$router.push('/cabins')"> Stuglista </td>
+                <td @click="$router.push('/addcabin')"> Lägg till Stuga </td> 
+                <td @click="$router.push('/bookings')"> Bokningar</td>
                 <td @click="$router.push('/verify')"> Verifiering</td>
             </tr>
         </thead>
-    </section>
+        </section>
     <router-view />
     </main>
 </template>
@@ -19,5 +19,3 @@ export default {
     name : 'admin'
 }
 </script>
-<style lang="scss">
-</style>
