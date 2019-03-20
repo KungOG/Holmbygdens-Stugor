@@ -1,0 +1,40 @@
+@import '../scss/variables';
+.verifyinput {
+    border : none;
+    padding : 1rem;
+    font-size : 1rem;
+    text-align : center;
+    height : $baseline * 2.5;
+    background : rgba($color: #000000, $alpha: .3);
+    border-top : 1px solid rgba($color: #000000, $alpha: .1);
+    transition : background .3s ease;
+    &:focus, &:hover{
+        background : rgba($color: $red, $alpha: .5);
+    }  
+    
+    &.valid {
+    background : rgba($color: $green, $alpha: .2);
+    }
+
+}
+.verifybtn {
+    @extend %center;
+    height : $baseline * 2.5;
+    background : $red;
+    color : rgba($color: #FFF, $alpha: .6);
+    font-weight : 700;
+    text-decoration : none;
+    font-size : 1.2rem;
+    transition : background .2s ease;
+
+    &.ready {
+        background : $green;
+        color : rgba($color: #FFF, $alpha: 1);
+    }
+}
+
+@keyframes shake {
+    0%       { transform: translateX(0);     }
+    25%, 50% { transform: translateX(-.5rem); }
+    75%, 100% { transform: translateX(.5rem);  }
+}

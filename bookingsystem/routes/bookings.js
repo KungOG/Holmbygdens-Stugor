@@ -45,8 +45,9 @@ module.exports.delete = async (req, res) => {
 
         // Kolla om användaren är admin
         if(auth.verifyToken(req.headers.authorization)){
-            res.status(200).send( await Booking.findOneAndDelete
-            ({_id: req.params.bookingId}));
+            res.status(200).send( await Booking.findOneAndDelete({
+                _id: req.params.bookingId
+            }));
         }
     
     } catch(err) {

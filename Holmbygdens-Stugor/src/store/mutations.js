@@ -18,6 +18,7 @@ toggleRejected(state){
     setCabin (state, cabin) {
         state.cabin = cabin;
     },
+    /* Hämta bokningar ifrån DB:n */
     setBookings (state, bookings) {
         state.bookings = bookings;
     },

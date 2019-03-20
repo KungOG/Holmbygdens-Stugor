@@ -1,23 +1,20 @@
 <template>
-    <main class="addCabin">
+    <main class="content">
     <h1>Verifiera bokningen</h1>
-
-  <section class="verification" v-if="verificaton">
-    <article v-if="verificaton.verified">
-      <h1 >Giltlig!</h1>
-      <p>Du har bokat stugan {{ verificaton.msg.cabin.name }}</p>
-    </article>
-​
-    <h1 v-if="!verificaton.verified">Ej giltlig bokning</h1>
-  </section> 
-    <section class="form">
-        <input type="text" name="code" 
+    <section class="verification" v-if="verificaton">
+      <h1 v-if="verificaton.verified">Giltlig!</h1>
+​      <h1 v-if="!verificaton.verified">Ej giltlig bokning</h1>
+    </section>
+    <section class="addCabin">
+        <input type="text" name="code" class="verifyinput"
         :value="code.toUpperCase()" 
         @input="code = $event.target.value.toUpperCase()" 
-        :maxlength="codeLength"/>
+        :maxlength="codeLength"
+        :class="{valid :validCode}"/>
 
-        <br><br>
-        <a href="#" class="btn" @click="verifyBooking">Verifera Koden</a>
+        <a href="#" class="verifybtn" 
+        @click="verifyBooking" 
+        :class="{ready :validCode}">Verifera Koden</a>
     </section>
     </main>
 </template>
@@ -28,7 +25,8 @@ export default {
     data(){
         return{
             code: '',
-            codeLength: 5
+            codeLength: 5,
+            validCode : false
         }
     },
     computed: {
@@ -41,18 +39,20 @@ export default {
             this.$store.dispatch('verifyBooking',
             this.code);
         }
+    },
+    watch : {
+        code (val) {
+            if (val.length > 4) {
+                this.validCode = true;
+            } else {
+                this.validCode = false;
+            }
+        }
     }
 }
+
 </script>
 <style lang="scss">
-.verification {
-        margin: auto;
-        font-size: 1.2rem;
-        font-style: italic;
-        padding: 2rem;
-        color: black;
-        text-align: center;
-
-}
-
+@import '../../scss/variables.scss';
+@import '../../scss/special.scss';
 </style>
