@@ -1,7 +1,7 @@
 <!-- Detta är bokningsprocessen där du kommer att bekräfta din bokning. Steg 3 av 4 -->
 <template>
     <article>
-    <section class="content" v-if="cabin">
+    <section class="addCabin" v-if="cabin">
         <h1>{{ cabin.name }}</h1>
         <article class="price">{{ cabin.price * amount }} sek</article><br>
         <p>Var vänlig och fyll i datum du vill boka</p>

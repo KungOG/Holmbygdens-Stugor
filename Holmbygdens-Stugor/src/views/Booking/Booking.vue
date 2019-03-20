@@ -1,7 +1,7 @@
 <!-- Detta är i början av bokningsprocessen där du i steg fixar din bokning. Steg 1 av 4 -->
 <template>
   <main>
-    <section class="content">
+    <section class="addCabin">
       <h1>Val av Stuga</h1>
       <select v-model="author" @change="handlePlace">
         <option v-for="cabin in cabins" :key="cabin._id" :value="cabin._id"> {{ cabin.where.city }} </option>

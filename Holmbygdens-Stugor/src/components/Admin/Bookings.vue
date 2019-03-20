@@ -1,7 +1,7 @@
 <!-- Detta är admin bokningssidan där du ser de aktiva bokningarna -->
 <template>
     <main>
-        <section class="content">
+        <section class="addCabin">
             <h1>Aktiva bokningar</h1>
                <ul>
                     <li v-for="booking in bookings" 

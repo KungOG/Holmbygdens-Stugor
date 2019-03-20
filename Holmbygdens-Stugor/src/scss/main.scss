@@ -20,22 +20,20 @@ body {
 
   /* Bilden på vänster sida */
   .home-picture {
-    @extend %picture;  
+    @extend %picture; 
     z-index: -1000;
+    display : flex;
+    justify-content: center;
+    align-items: center;
     padding : 25px 0 0 0;
-    overflow : hidden;
   }
 
  /* All CSS i hela appen */
   .content {
-    padding : 2rem 0 0 0;
+    padding : 1rem 1rem 1rem 1rem;
     display : grid;
     border : 1px solid black;
     @extend %input;
-  }
-
-  img {
-    width: 20%;
   }
 
   /* Navigationen */
@@ -83,6 +81,7 @@ thead {
 .addCabin, .pick-date { 
   display : grid;
   grid-area : 'input';
+  border : 1px solid black;
   @extend %input;
 }
 
@@ -118,20 +117,3 @@ thead {
   }
 }
 
-@media only screen and (max-width: 600px) {
-  %layout {
-
-  grid-template-columns : repeat(1, 1fr);
-  grid-template-areas : 
-  'picture'
-  'content'
-  'content';
-
-  }
-  thead {
-    display : grid;
-  }
-  .content {
-    display : grid;
-  }
-}
