@@ -7,7 +7,10 @@
         <p>Var vänlig och fyll i datum du vill boka</p>
         <input type="date" :min="new Date()" v-model="checkIn"/>
         <input type="date" :min="checkIn" v-model="checkOut"/>
-      <a href="#" class="custombtn" @click="booked">Booka din Stuga</a>
+         
+        <a href="#" class="custombtn" v-if="!seen" v-on:click="seen = !seen">Booka din Stuga</a>
+        <p v-if="seen">Var vänlig att bekräfta din bokning</p>
+        <a v-if="seen" href="#" class="custombtn" @click="booked">Bekräfta</a>
     </section>
     <section class="content" v-if="!cabin">
       <p>Ingen bokning vald.</p>
@@ -23,7 +26,8 @@ export default {
         return {
             amount : 1,
             checkIn: null,
-            checkOut: null
+            checkOut: null,
+            seen: false,
         }
     },
     computed: {
