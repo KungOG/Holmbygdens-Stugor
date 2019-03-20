@@ -16,15 +16,12 @@ body {
   -moz-osx-font-smoothing : grayscale;
   text-align : center;
   color : black;
+  margin : 3rem;
   @extend %layout;
 
   /* Bilden på vänster sida */
   .home-picture {
     @extend %picture; 
-    z-index: -1000;
-    display : flex;
-    justify-content: center;
-    align-items: center;
     padding : 25px 0 0 0;
   }
 
@@ -33,6 +30,7 @@ body {
     padding : 1rem 1rem 1rem 1rem;
     display : grid;
     border : 1px solid black;
+    background : white;
     @extend %input;
   }
 
@@ -82,12 +80,14 @@ thead {
   display : grid;
   grid-area : 'input';
   border : 1px solid black;
+  background : white;
   @extend %input;
 }
 
 /* Stuglistan och dess CSS */
 .cabin {
   @extend %content;
+  background : white;
   ul {
     li {
       cursor: pointer;
