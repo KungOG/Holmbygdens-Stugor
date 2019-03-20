@@ -3,13 +3,6 @@
   <main>
     <section class="addCabin">
       <h1>Val av Stuga</h1>
-      <select v-model="cabin" @change="handlePlace">
-
-      <option v-for="cabin in cabins" 
-      :key="cabin._id" 
-      :value="cabin._id"> 
-      {{ cabin.name }} </option>
-      </select>
       <input type="text" 
       v-model="search" 
       placeholder="Filtrera sökning: "/>
@@ -49,7 +42,6 @@ export default {
     data(){
       return {
         search: "",
-        author: "",
         cabin: ""
       }
     },
