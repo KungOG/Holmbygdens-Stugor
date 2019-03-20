@@ -52,3 +52,14 @@ $red: rgba(255, 0, 0, 0.747);
     'cabin'
     'cabin';
 }
+
+@media only screen and (max-width: 600px) {
+    %layout {
+    justify-content: center;
+    grid-template-columns : repeat(1, 1fr);
+    grid-template-areas : 
+    'picture'
+    'content'
+    'content';
+    }
+  }

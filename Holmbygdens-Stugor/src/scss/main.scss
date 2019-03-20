@@ -113,3 +113,21 @@ thead {
     }
   }
 }
+
+@media only screen and (max-width: 600px) {
+  %layout {
+
+  grid-template-columns : repeat(1, 1fr);
+  grid-template-areas : 
+  'picture'
+  'content'
+  'content';
+
+  }
+  thead {
+    display : grid;
+  }
+  .content {
+    display : grid;
+  }
+}
