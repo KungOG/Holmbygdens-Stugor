@@ -121,12 +121,18 @@ thead {
   'info info info';
   .name {
     grid-area : name;
+    text-align : left;
+    padding : 0 0 0 1rem;
   }
   .price {
     grid-area : price;
+    text-align : left;
+    padding : 0 0 0 1rem;
   }
   .info {
     grid-area : info;
+    text-align : left;
+    padding : 0 0 0 1rem;
   }
   img {
     grid-area : img;
