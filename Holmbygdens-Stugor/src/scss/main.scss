@@ -27,7 +27,7 @@ body {
   }
   #book {
     background : darkgrey;
-  
+
   }
   .content {
     display : grid;
@@ -41,11 +41,11 @@ body {
         background : darkcyan;
         padding : 1rem .5rem;
         display : grid;
-    
+
         input {
           padding : .5rem;
         }
-    
+
         & a.btn {
           padding : 1rem;
           background : yellowgreen;
@@ -67,6 +67,10 @@ body {
         }
       }
     }
+  }
+
+  img {
+    width: 20%;
   }
 
   /* Navigationen */

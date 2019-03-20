@@ -17,6 +17,8 @@
             <td>{{cabin.name}}</td>
             <td>{{cabin.price}}</td>
             <td>{{cabin.info}}</td>
+            <img :src = "cabin.picture" />
+
         </tr>
         </section>
         <router-view />
