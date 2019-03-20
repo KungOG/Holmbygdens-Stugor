@@ -4,7 +4,7 @@
         <section class="content">
             <h1>Aktiva bokningar</h1>
                <ul>
-                   <li v-for="booking in bookings" 
+                    <li v-for="booking in bookings" 
                     :key="booking._id" 
                     :booking="booking">
                     {{booking.code}} 
