@@ -1,5 +1,5 @@
 <template>
-    <main class="content">
+    <main class="addCabin">
     <h1>Verifiera bokningen</h1>
     <section class="verification" v-if="verificaton">
       <h1 v-if="verificaton.verified">Giltlig!</h1>

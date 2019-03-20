@@ -1,6 +1,6 @@
 <!-- Nybyggd stuga eller nyinköpt stuga, så finns denna för att lägga till den nya stugan -->
 <template>
-<article class="content">
+<article>
     <section class="addCabin">
         <!-- Detta är våran information och våran mall som
              vi skickar för att skapa en ny stuga till våran databas. -->

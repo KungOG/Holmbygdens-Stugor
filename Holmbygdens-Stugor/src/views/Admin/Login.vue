@@ -1,5 +1,5 @@
 <template>
-    <main class="content">
+    <main>
         <article class="addCabin">
             <input v-model="username" 
             type="text" 

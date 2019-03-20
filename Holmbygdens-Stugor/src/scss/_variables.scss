@@ -36,11 +36,11 @@ $red: rgba(255, 0, 0, 0.747);
     display : grid;
     grid-template-columns : repeat(1, 2fr);
     grid-template-areas :
-    'input input'
-    'input input'
-    'input input'
-    'input input'
-    'input .';
+    'input'
+    'input'
+    'input'
+    'input'
+    'input';
 }
 
 %trGrid {
@@ -53,13 +53,24 @@ $red: rgba(255, 0, 0, 0.747);
     'cabin';
 }
 
-@media only screen and (max-width: 600px) {
-    %layout {
-    justify-content: center;
+@media only screen and (max-width: 768px) {
+
+    #app {
     grid-template-columns : repeat(1, 1fr);
     grid-template-areas : 
     'picture'
     'content'
+    'content'
     'content';
+    margin : 0 !important;
+        .home-picture {
+            justify-content: center;
+            display : flex;
+            align-items : center;
+        }
+
+        .content {
+            display : flex;
+        }
     }
-  }
+}

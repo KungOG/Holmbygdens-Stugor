@@ -6,7 +6,9 @@
         <router-link to="/admin">Admin</router-link>               
         <router-link to="/about">About</router-link> 
       </Slide>
+      <section class="home-picture" > 
         <img class="home-picture" alt="stuga i skogen" src="@/assets/cabin.png">
+      </section>
       <router-view/>
   </div>
 </template>
@@ -28,6 +30,4 @@ export default {
 
 <style lang="scss">
 @import './scss/main.scss';
-
-
 </style>
