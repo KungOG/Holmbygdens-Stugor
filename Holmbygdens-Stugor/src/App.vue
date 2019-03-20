@@ -6,9 +6,9 @@
         <router-link to="/admin">Admin</router-link>               
         <router-link to="/about">About</router-link> 
       </Slide>
-      <sectopn class="home-picture" > 
+      <section class="home-picture" > 
         <img class="home-picture" alt="stuga i skogen" src="@/assets/cabin.png">
-      </sectopn>
+      </section>
       <router-view/>
   </div>
 </template>
