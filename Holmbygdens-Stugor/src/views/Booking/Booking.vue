@@ -3,17 +3,18 @@
   <main>
     <section class="content">
       <h1>Val av Stuga</h1>
-      <select v-model="author" @change="handlePlace">
-        <option v-for="cabin in cabins" :key="cabin._id" :value="cabin._id"> {{ cabin.where.city }} </option>
+      <select v-model="cabin" @change="handlePlace">
+      <option v-for="cabin in cabins" :key="cabin._id" :value="cabin._id"> {{ cabin.name }} </option>
       </select>
       <input type="text" v-model="search" placeholder="Filtrera sökning: " />
-      <tr v-for="cabin in filteredCabins" 
-      :key="cabin._id" :cabin="cabin" 
+      <tr v-for="cabin in filteredCabins"
+      :key="cabin._id" :cabin="cabin"
       @click="$router.push(`/booking/${cabin._id}`)"
       class="availableCabins">
           <td>{{cabin.name}}</td>
           <td>{{cabin.price}}</td>
           <td>{{cabin.info}}</td>
+          <img :src="cabin.picture" />
         </tr>
       </section>
       <router-view />
