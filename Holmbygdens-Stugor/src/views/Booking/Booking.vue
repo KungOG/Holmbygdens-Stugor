@@ -34,7 +34,7 @@
           {{cabin.info}}</p>
       </section>
       <section class="img">
-        <p class="img"><img :src="cabin.picture" /></p>
+        <p class="img"><img :src="cabin.picture" @error="ifNoPicture"/></p>
       </section>  
         </tr>
       </section>
@@ -43,6 +43,7 @@
 </template>
 
 <script>
+import noPicture from '@/assets/cabin2.png'
 export default {
     name : 'booking',
     data(){
@@ -57,22 +58,25 @@ export default {
         this.$store.dispatch('getCabin');
     },
     computed : {
-        cabins () {
-            /* Hämta alla stugor */
-            return this.$store.state.cabins;
-        },
-        filteredCabins(){
-            return this.cabins.filter((cabin) => {
-            let results = cabin.name.match(this.search);
-              this.cabin = results;
-              return results;
-            })
-          }
+      cabins () {
+          /* Hämta alla stugor */
+          return this.$store.state.cabins;
+      },
+      filteredCabins(){
+          return this.cabins.filter((cabin) => {
+          let results = cabin.name.match(this.search);
+            this.cabin = results;
+            return results;
+         })
+      }
     },
     methods: {
-    handlePlace(){
-      this.$router.push(`/booking/${this.cabin}`);
+      handlePlace(){
+        this.$router.push(`/booking/${this.cabin}`);
+    }, 
+    ifNoPicture (e) {
+      e.target.src = noPicture
     }
-    }
+  }
 }
 </script>
