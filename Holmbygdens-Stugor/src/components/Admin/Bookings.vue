@@ -18,9 +18,6 @@
                     </li>
                </ul>
         </section>
-        <section>
-            <h1>Historik</h1>
-        </section>
     </main>
 </template>
 
